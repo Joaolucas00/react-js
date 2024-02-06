@@ -1,6 +1,6 @@
 import './Banner.css'
 
-function Banner() {
+const Banner = () => {
     return (
         <hearder className="banner">
             <img src="/imagens/banner.png" alt="banner principal organo"></img>
