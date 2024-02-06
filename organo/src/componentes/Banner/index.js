@@ -2,9 +2,9 @@ import './Banner.css'
 
 const Banner = () => {
     return (
-        <hearder className="banner">
+        <header className="banner">
             <img src="/imagens/banner.png" alt="banner principal organo"></img>
-        </hearder>
+        </header>
     )
 }
 
