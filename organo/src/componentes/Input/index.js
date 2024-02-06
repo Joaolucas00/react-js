@@ -3,8 +3,8 @@ import './Input.css'
 const Input = (props) => {
     return (
         <div className="campo-texto">
-            <label>{props.label}</label>
-            <input placeholder={`${props.placeholder}...`}/>
+            <label for={props.for}>{props.label}</label>
+            <input type="text" placeholder={`${props.placeholder}...`} id={props.id}/>
         </div>
     )
 }

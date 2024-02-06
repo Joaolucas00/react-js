@@ -1,0 +1,23 @@
+import './Formulario.css'
+import Input from '../Input'
+
+const Formulario = (props) => {
+    return (
+    <section className="formulario">
+        <form 
+            action={props.action} 
+            method={props.method} 
+            autocomplete={props.autocomplete}
+            >
+                <h2>{props.titulo}</h2>
+                <Input for="inome" id="inome" label="Nome" placeholder="digite seu nome"/>
+                <Input for="icargo" id="icargo" label="Cargo" placeholder="digite seu cargo"/>
+                <Input for="iimagem" id="iimagem" label="Imagem" placeholder="Informe o endereço da imagem"/>
+                <Input for="itime" id="itime" label="Time" placeholder=""/>
+                <input type="submit" value="enviar"></input>
+        </form>
+    </section>
+    )
+}
+
+export default Formulario
