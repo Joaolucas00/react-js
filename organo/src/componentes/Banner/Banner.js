@@ -1,6 +1,10 @@
+import './Banner.css'
+
 function Banner() {
     return (
-        <img src=".../public/imagens/imagens/imagnes/banner.png"></img>
+        <hearder className="banner">
+            <img src="/imagens/banner.png" alt="banner principal organo"></img>
+        </hearder>
     )
 }
 
