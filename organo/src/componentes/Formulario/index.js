@@ -23,7 +23,7 @@ const Formulario = (props) => {
 
     const aoSalvar = (evento) => {
         evento.preventDefault()
-        console.log("Subimetido: ", nome, cargo, imagem, time)
+        props.aoCadastrar({nome: nome, cargo: cargo, imagem: imagem, time: time})
     }
 
     return (
