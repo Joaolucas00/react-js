@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <Banner/>
-      <Formulario titulo="Formulário" method="post" action="/" autocomplete="on"/>
+      <Formulario titulo="Formulário" method="get" action="/" autocomplete="on"/>
     </div>
   );
 }
