@@ -8,6 +8,7 @@ function App() {
 
   const aoCadastro = (colaborador) => {
     console.log("Cadastro: ", colaborador);
+    setCadastrado([...cadastrado, colaborador])
   }
 
   return (
