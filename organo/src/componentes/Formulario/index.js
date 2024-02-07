@@ -19,10 +19,11 @@ const Formulario = (props) => {
     const [nome, setNome] = useState('Joao')
     const [cargo, setCargo] = useState('Ti')
     const [imagem, setImagem] = useState('http...')
+    const [time, setTime] = useState('Programação')
 
     const aoSalvar = (evento) => {
         evento.preventDefault()
-        console.log("Subimetido: ", nome, cargo, imagem)
+        console.log("Subimetido: ", nome, cargo, imagem, time)
     }
 
     return (
@@ -60,7 +61,7 @@ const Formulario = (props) => {
                     valor={imagem}
                     aoAlterado={valor => setImagem(valor)}
                 />
-                <ListaSuspensa itens={times} label="Times"/>
+                <ListaSuspensa obrigatorio={true} value={time} aoAlterado={valor => setTime(valor)} itens={times} label="Times"/>
                 <Botao>
                     Criar Card
                 </Botao>
