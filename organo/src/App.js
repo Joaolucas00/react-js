@@ -53,11 +53,11 @@ function App() {
   return (
     <div className="App">
       <Banner/>
-      <Formulario aoCadastrar={cadastro => aoCadastro(cadastro)} titulo="Formulário" method="get" action="/" autocomplete="on"/>
+      <Formulario times={times.map(time => time.nome)} aoCadastrar={cadastro => aoCadastro(cadastro)} titulo="Formulário" method="get" action="/" autocomplete="on"/>
 
-    {times.map(time => <Time titulo={time.nome} />)}
+    {times.map(time => <Time key={time.nome} titulo={time.nome} corPrimaria={time.corPrimaria} corSecundaria={time.corSecundaria} />)}
 
-      <Time titulo="PHP"/>
+
     </div>
   );
 }
