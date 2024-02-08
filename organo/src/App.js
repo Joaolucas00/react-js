@@ -55,7 +55,13 @@ function App() {
       <Banner/>
       <Formulario times={times.map(time => time.nome)} aoCadastrar={cadastro => aoCadastro(cadastro)} titulo="Formulário" method="get" action="/" autocomplete="on"/>
 
-    {times.map(time => <Time key={time.nome} titulo={time.nome} corPrimaria={time.corPrimaria} corSecundaria={time.corSecundaria} />)}
+    {times.map(time => <Time 
+      key={time.nome} 
+      titulo={time.nome} 
+      corPrimaria={time.corPrimaria} 
+      corSecundaria={time.corSecundaria} 
+      cadastrados={cadastrado.filter(colaborador => colaborador.time === time.nome)}
+      />)}
 
 
     </div>

@@ -7,14 +7,18 @@ import { useState } from 'react'
 const Formulario = (props) => {
 
     
-    const [nome, setNome] = useState('Joao')
-    const [cargo, setCargo] = useState('Ti')
-    const [imagem, setImagem] = useState('http...')
-    const [time, setTime] = useState('Programação')
+    const [nome, setNome] = useState('')
+    const [cargo, setCargo] = useState('')
+    const [imagem, setImagem] = useState('')
+    const [time, setTime] = useState('')
 
     const aoSalvar = (evento) => {
         evento.preventDefault()
         props.aoCadastrar({nome: nome, cargo: cargo, imagem: imagem, time: time})
+        setNome('')
+        setCargo('')
+        setImagem('')
+        setTime('')
     }
 
     return (

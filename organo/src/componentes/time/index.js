@@ -3,19 +3,14 @@ import './Time.css'
 
 const Time = (props) => {
     return (
-        <section className='time' style={{ backgroundColor: props.corSecundaria }}>
+        (props.cadastrados.length > 0) ? <section className='time' style={{ backgroundColor: props.corSecundaria }}>
             <h3 style={{borderColor: props.corPrimaria}}>{props.titulo}</h3>
             <div className='cards-flex'>
-                <Card corPrimaria={props.corPrimaria}/>
-                <Card corPrimaria={props.corPrimaria}/>
-                <Card corPrimaria={props.corPrimaria}/>
-                <Card corPrimaria={props.corPrimaria}/>
-                <Card corPrimaria={props.corPrimaria}/>
-                <Card corPrimaria={props.corPrimaria}/>
-                <Card corPrimaria={props.corPrimaria}/>
-                <Card corPrimaria={props.corPrimaria}/>
+                {props.cadastrados.map(colaborador => <Card colaborador={colaborador} corPrimaria={props.corPrimaria}/>)}
             </div>
-        </section>)
+        </section>
+         : ''
+        )
 }
 
 export default Time

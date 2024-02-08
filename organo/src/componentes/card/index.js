@@ -1,14 +1,14 @@
 import './Card.css'
 
-const Card = (props) => {
+const Card = ({ colaborador, corPrimaria }) => {
     return (
         <div className='card'>
-            <div className='cabecalho' style={{backgroundColor: props.corPrimaria}}>
-                <img className='foto' src='https://github.com/Joaolucas00.png' alt='João Lucas'/>
+            <div className='cabecalho' style={{backgroundColor: corPrimaria}}>
+                <img className='foto' src={colaborador.imagem} alt={colaborador.nome}/>
             </div>
             <div className='rodape'>
-                <h4>João</h4>
-                <h5>Dev PHP</h5>
+                <h4>{colaborador.nome}</h4>
+                <h5>{colaborador.cargo}</h5>
             </div>
         </div>
     )
