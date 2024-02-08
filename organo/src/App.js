@@ -63,7 +63,6 @@ function App() {
       cadastrados={cadastrado.filter(colaborador => colaborador.time === time.nome)}
       />)}
 
-
     </div>
   );
 }
