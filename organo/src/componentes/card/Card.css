@@ -1,4 +1,5 @@
 div.card {
+    position: relative;
     margin: 5px;
     width: 20%;
 }
@@ -35,4 +36,18 @@ h5 {
     padding-top: 90px;
     padding-bottom: 40px;
     border-radius: 0 0 10px 10px;
+}
+
+.deletar {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    cursor: pointer;
+    border: 1px dashed red;
+    background-color: rgb(255, 167, 167);
+    border-radius: 10%;
+    padding: 3px;
+    font-weight: 500;
+    font-size: 0.875rem;
+    font-family: 'Montserrat';
 }

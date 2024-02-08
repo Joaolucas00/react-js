@@ -1,8 +1,9 @@
 import './Card.css'
 
-const Card = ({ colaborador, corPrimaria }) => {
+const Card = ({ colaborador, corPrimaria, aoDeletar }) => {
     return (
         <div className='card'>
+            <div className="deletar" onClick={aoDeletar}>deletar</div>
             <div className='cabecalho' style={{backgroundColor: corPrimaria}}>
                 <img className='foto' src={colaborador.imagem} alt={colaborador.nome}/>
             </div>

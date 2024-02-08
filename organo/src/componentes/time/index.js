@@ -6,7 +6,14 @@ const Time = (props) => {
         (props.cadastrados.length > 0) && <section className='time' style={{ backgroundColor: props.corSecundaria }}>
             <h3 style={{borderColor: props.corPrimaria}}>{props.titulo}</h3>
             <div className='cards-flex'>
-                {props.cadastrados.map(colaborador => <Card key={colaborador.nome} colaborador={colaborador} corPrimaria={props.corPrimaria}/>)}
+                {props.cadastrados.map(colaborador => {
+                    return <Card 
+                        key={colaborador.nome} 
+                        aoDeletar={props.aoDeletar} 
+                        colaborador={colaborador} 
+                        corPrimaria={props.corPrimaria}
+                    />
+                    })}
             </div>
         </section>
         )

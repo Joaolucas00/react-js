@@ -50,6 +50,11 @@ function App() {
     setCadastrado([...cadastrado, colaborador])
   }
 
+  const deletarColaborador = () => {
+    console.log('deletando o colaborador')
+  }
+
+
   return (
     <div className="App">
       <Banner/>
@@ -61,6 +66,7 @@ function App() {
       corPrimaria={time.corPrimaria} 
       corSecundaria={time.corSecundaria} 
       cadastrados={cadastrado.filter(colaborador => colaborador.time === time.nome)}
+      aoDeletar={deletarColaborador}
       />)}
 
     </div>
