@@ -26,7 +26,9 @@ const Formulario = (props) => {
 
     const salvarNovoTime = (evento) => {
         evento.preventDefault()
-        props.aoCriarTime({nome: nomeTime, corSecundaria: corTime})
+        props.aoCriarTime({nome: nomeTime, corSecundaria: corTime + '8F', corPrimaria: corTime})
+        setNomeTime('')
+        setCorTime('')
     }
 
     return (

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Banner from './componentes/Banner';
 import Formulario from './componentes/Formulario';
 import Time from './componentes/time';
+import {v4 as uuidv4} from 'uuid'
 
 function App() {
 
@@ -51,7 +52,7 @@ function App() {
   }
 
   const aoCriarTime = (novoTime) => {
-    setTimes([...times, novoTime])
+    setTimes([...times, {...novoTime, id: uuidv4()}])
   }
 
   const deletarColaborador = (id) => {
@@ -62,7 +63,7 @@ function App() {
   return (
     <div className="App">
       <Banner/>
-      <Formulario times={times.map(time => time.nome)} aoCadastrar={cadastro => aoCadastro(cadastro)} titulo="Formulário" method="get" action="/" autocomplete="on" aoCriarTime={(time) => aoCriarTime(time)}/>
+      <Formulario times={times.map(time => time.nome)} aoCadastrar={cadastro => aoCadastro(cadastro)} titulo="Dados do colaborador" method="get" action="/" autocomplete="on" aoCriarTime={(time) => aoCriarTime(time)}/>
 
     {times.map(time => <Time 
       key={time.nome} 
