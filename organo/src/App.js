@@ -50,8 +50,9 @@ function App() {
     setCadastrado([...cadastrado, colaborador])
   }
 
-  const deletarColaborador = () => {
-    console.log('deletando o colaborador')
+  const deletarColaborador = (id) => {
+    console.log('Opa, Olá :)', id);
+    setCadastrado(cadastrado.filter(colaborador => colaborador.id !== id))
   }
 
 

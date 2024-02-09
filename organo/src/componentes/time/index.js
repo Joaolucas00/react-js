@@ -14,8 +14,8 @@ const Time = (props) => {
 
 
     return (
-        (props.cadastrados.length > 0) && <section className='time' style={{ backgroundColor: corFundo }}>
-            <input value={corFundo} type='color' className='input-cor' onChange={evento => mudarCor(evento.target.value)}/>
+        (props.cadastrados.length > 0) && <section className='time' style={{ backgroundColor: corFundo, backgroundImage: "url(imagens/fundo.png)" }}>
+            <input value={"#000000"} type='color' className='input-cor' onChange={evento => mudarCor(evento.target.value)}/>
             <h3 style={{borderColor: props.corPrimaria}}>{props.titulo}</h3>
             <div className='cards-flex'>
                 {props.cadastrados.map(colaborador => {
@@ -32,3 +32,4 @@ const Time = (props) => {
 }
 
 export default Time
+

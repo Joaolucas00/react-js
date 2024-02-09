@@ -3,6 +3,7 @@ import Input from '../Input'
 import ListaSuspensa from '../ListaSuspensa'
 import Botao from '../Botao'
 import { useState } from 'react'
+import {v4 as uuidv4} from 'uuid'
 
 const Formulario = (props) => {
 
@@ -14,11 +15,11 @@ const Formulario = (props) => {
 
     const aoSalvar = (evento) => {
         evento.preventDefault()
-        props.aoCadastrar({nome: nome, cargo: cargo, imagem: imagem, time: time})
+        props.aoCadastrar({id: uuidv4(), nome: nome, cargo: cargo, imagem: imagem, time: time})
         setNome('')
         setCargo('')
         setImagem('')
-        setTime('')
+        setTime('Programação')
     }
 
     return (
