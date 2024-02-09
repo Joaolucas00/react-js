@@ -5,7 +5,7 @@ import Time from './componentes/time';
 
 function App() {
 
-  const times = [
+  const [times, setTimes] = useState([
     {
       nome: 'Programação',
       corPrimaria: '#57C278',
@@ -41,7 +41,7 @@ function App() {
       corPrimaria: '#FF8A29',
       corSecundaria: '#FFEEDF'
     }
-  ]
+  ])
 
   const [cadastrado, setCadastrado] = useState([])
 
@@ -50,8 +50,11 @@ function App() {
     setCadastrado([...cadastrado, colaborador])
   }
 
+  const aoCriarTime = (novoTime) => {
+    setTimes([...times, novoTime])
+  }
+
   const deletarColaborador = (id) => {
-    console.log('Opa, Olá :)', id);
     setCadastrado(cadastrado.filter(colaborador => colaborador.id !== id))
   }
 
@@ -59,7 +62,7 @@ function App() {
   return (
     <div className="App">
       <Banner/>
-      <Formulario times={times.map(time => time.nome)} aoCadastrar={cadastro => aoCadastro(cadastro)} titulo="Formulário" method="get" action="/" autocomplete="on"/>
+      <Formulario times={times.map(time => time.nome)} aoCadastrar={cadastro => aoCadastro(cadastro)} titulo="Formulário" method="get" action="/" autocomplete="on" aoCriarTime={(time) => aoCriarTime(time)}/>
 
     {times.map(time => <Time 
       key={time.nome} 

@@ -12,6 +12,8 @@ const Formulario = (props) => {
     const [cargo, setCargo] = useState('')
     const [imagem, setImagem] = useState('')
     const [time, setTime] = useState('Programação')
+    const [nomeTime, setNomeTime] = useState('')
+    const [corTime, setCorTime] = useState('')
 
     const aoSalvar = (evento) => {
         evento.preventDefault()
@@ -20,6 +22,11 @@ const Formulario = (props) => {
         setCargo('')
         setImagem('')
         setTime('Programação')
+    }
+
+    const salvarNovoTime = (evento) => {
+        evento.preventDefault()
+        props.aoCriarTime({nome: nomeTime, corSecundaria: corTime})
     }
 
     return (
@@ -61,6 +68,32 @@ const Formulario = (props) => {
                 <Botao>
                     Criar Card
                 </Botao>
+        </form>
+        <form onSubmit={salvarNovoTime}
+            action={props.action} 
+            method={props.method} 
+            autoComplete={props.autocomplete}
+            >
+                <h2>Novo Time</h2>
+                <Input  
+                    obrigatorio={true} 
+                    for="inome" 
+                    id="inome" 
+                    label="Nome" 
+                    placeholder="digite o nome do time"
+                    valor={nomeTime}
+                    aoAlterado={valor => setNomeTime(valor)}
+                />
+                <Input 
+                    obrigatorio={true} 
+                    for="icor" 
+                    id="icor" 
+                    label="Cor" 
+                    placeholder="Digite a cor do Time"
+                    valor={corTime}
+                    aoAlterado={valor => setCorTime(valor)}
+                />
+                <Botao>Criar novo Time</Botao>
         </form>
     </section>
     )
