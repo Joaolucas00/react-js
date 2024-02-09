@@ -26,3 +26,11 @@ section.time {
     justify-content: center;
     align-items: center;
 }
+
+.input-cor {
+    border: none;
+    background-color: white;
+    text-align: end;
+    position: absolute;
+    left: 85%;
+}

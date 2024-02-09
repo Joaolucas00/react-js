@@ -38,13 +38,12 @@ h5 {
     border-radius: 0 0 10px 10px;
 }
 
+
 .deletar {
     position: absolute;
     right: -10px;
     top: -10px;
     cursor: pointer;
-    border: 1px dashed red;
-    background-color: rgb(255, 167, 167);
     border-radius: 10%;
     padding: 3px;
     font-weight: 500;

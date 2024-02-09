@@ -1,9 +1,21 @@
+import { useState } from 'react'
 import Card from '../card'
 import './Time.css'
 
 const Time = (props) => {
+
+    const [corFundo , setMudarCorFundo] = useState(props.corSecundaria);
+    const [corCard, setCorCard] = useState(props.corPrimaria)
+
+    const mudarCor = (evento) => {
+        setCorCard(evento)
+        setMudarCorFundo(evento + '8F')
+    }
+
+
     return (
-        (props.cadastrados.length > 0) && <section className='time' style={{ backgroundColor: props.corSecundaria }}>
+        (props.cadastrados.length > 0) && <section className='time' style={{ backgroundColor: corFundo }}>
+            <input value={corFundo} type='color' className='input-cor' onChange={evento => mudarCor(evento.target.value)}/>
             <h3 style={{borderColor: props.corPrimaria}}>{props.titulo}</h3>
             <div className='cards-flex'>
                 {props.cadastrados.map(colaborador => {
@@ -11,7 +23,7 @@ const Time = (props) => {
                         key={colaborador.nome} 
                         aoDeletar={props.aoDeletar} 
                         colaborador={colaborador} 
-                        corPrimaria={props.corPrimaria}
+                        corPrimaria={corCard}
                     />
                     })}
             </div>
