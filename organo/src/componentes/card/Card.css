@@ -50,3 +50,8 @@ h5 {
     font-size: 0.875rem;
     font-family: 'Montserrat';
 }
+
+.favorito {
+    margin: 5px;
+    cursor: pointer;
+}

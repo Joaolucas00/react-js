@@ -59,6 +59,14 @@ function App() {
     setCadastrado(cadastrado.filter(colaborador => colaborador.id !== id))
   }
 
+  const aoFavoritar = (pessoa) => {
+    setCadastrado(cadastrado.map(colaborador => {
+      if (colaborador.id === pessoa.id) {
+        colaborador.favorito = !pessoa.favorito
+      }
+      return colaborador
+    }))
+  }
 
   return (
     <div className="App">
@@ -72,10 +80,11 @@ function App() {
       corSecundaria={time.corSecundaria} 
       cadastrados={cadastrado.filter(colaborador => colaborador.time === time.nome)}
       aoDeletar={deletarColaborador}
+      aoFavoritar={aoFavoritar}
       />)}
 
     </div>
-  );
+  )
 }
 
 export default App;

@@ -17,7 +17,7 @@ const Formulario = (props) => {
 
     const aoSalvar = (evento) => {
         evento.preventDefault()
-        props.aoCadastrar({id: uuidv4(), nome: nome, cargo: cargo, imagem: imagem, time: time})
+        props.aoCadastrar({id: uuidv4(), nome: nome, cargo: cargo, imagem: imagem, time: time, favorito: false})
         setNome('')
         setCargo('')
         setImagem('')
@@ -28,7 +28,7 @@ const Formulario = (props) => {
         evento.preventDefault()
         props.aoCriarTime({nome: nomeTime, corSecundaria: corTime + '8F', corPrimaria: corTime})
         setNomeTime('')
-        setCorTime('')
+        setCorTime('#000000')
     }
 
     return (

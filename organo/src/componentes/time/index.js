@@ -20,10 +20,11 @@ const Time = (props) => {
             <div className='cards-flex'>
                 {props.cadastrados.map(colaborador => {
                     return <Card 
-                        key={colaborador.nome} 
+                        key={colaborador.id} 
                         aoDeletar={props.aoDeletar} 
                         colaborador={colaborador} 
                         corPrimaria={corCard}
+                        aoFavoritar={props.aoFavoritar}
                     />
                     })}
             </div>
