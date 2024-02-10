@@ -18,8 +18,8 @@ const Card = ({ colaborador, corPrimaria, aoDeletar, aoFavoritar}) => {
                 <h5>{colaborador.cargo}</h5>
                 <div className='favorito'>
                     {colaborador.favorito 
-                        ? <AiFillHeart onClick={() => aoFavoritar(colaborador)}/> 
-                        : <AiOutlineHeart onClick={() => aoFavoritar(colaborador)}/>}
+                        ? <AiFillHeart size={25} onClick={() => aoFavoritar(colaborador)}/> 
+                        : <AiOutlineHeart size={25} onClick={() => aoFavoritar(colaborador)}/>}
                 </div>
             </div>
         </div>

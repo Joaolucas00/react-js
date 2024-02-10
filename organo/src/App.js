@@ -47,7 +47,7 @@ function App() {
   const [cadastrado, setCadastrado] = useState([])
 
   const aoCadastro = (colaborador) => {
-    console.log("Cadastro: ", colaborador);
+    console.log("Cadastro: ", cadastrado);
     setCadastrado([...cadastrado, colaborador])
   }
 
