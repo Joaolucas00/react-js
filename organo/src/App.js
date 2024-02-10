@@ -5,6 +5,8 @@ import Time from './componentes/time';
 import {v4 as uuidv4} from 'uuid'
 
 function App() {
+  // useEffect, faz com que o React executar algo só depois do componente ser redenrizado
+  // pode causar looping ifinito, primeiro argumento é a fn a ser executada, o segundo um array que pode ser vazio, ou ter uma depedencia
 
   const [times, setTimes] = useState([
     {
