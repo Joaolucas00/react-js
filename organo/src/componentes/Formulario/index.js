@@ -29,7 +29,7 @@ const Formulario = (props) => {
         props.aoCriarTime({nome: nomeTime, corSecundaria: corTime + '8F', corPrimaria: corTime})
         setNomeTime('')
         setCorTime('#000000')
-    }
+    } 
 
     return (
     <section className="formulario">
