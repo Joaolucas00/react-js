@@ -10,7 +10,7 @@ const Input = (props) => {
     return (
         <div className="campo-texto">
             <label htmlFor={props.for}>{props.label}</label>
-            <input value={props.valor} onChange={aoDigitar} required={props.obrigatorio} type="text" placeholder={`${props.placeholder}...`} id={props.id}/>
+            <input value={props.valor} onChange={aoDigitar} required={props.obrigatorio} type={props.tipo} placeholder={`${props.placeholder}...`} id={props.id}/>
         </div>
     )
 }

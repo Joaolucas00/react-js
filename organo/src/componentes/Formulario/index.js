@@ -13,7 +13,7 @@ const Formulario = (props) => {
     const [imagem, setImagem] = useState('')
     const [time, setTime] = useState('Programação')
     const [nomeTime, setNomeTime] = useState('')
-    const [corTime, setCorTime] = useState('')
+    const [corTime, setCorTime] = useState('#000000')
 
     const aoSalvar = (evento) => {
         evento.preventDefault()
@@ -40,6 +40,7 @@ const Formulario = (props) => {
             >
                 <h2>{props.titulo}</h2>
                 <Input  
+                    tipo="text"
                     obrigatorio={true} 
                     for="inome" 
                     id="inome" 
@@ -49,6 +50,7 @@ const Formulario = (props) => {
                     aoAlterado={valor => setNome(valor)}
                 />
                 <Input 
+                    tipo="text"
                     obrigatorio={true} 
                     for="icargo" 
                     id="icargo" 
@@ -58,6 +60,7 @@ const Formulario = (props) => {
                     aoAlterado={valor => setCargo(valor)}
                 />
                 <Input 
+                    tipo="text"
                     obrigatorio={true} 
                     for="iimagem" 
                     id="iimagem" 
@@ -78,6 +81,7 @@ const Formulario = (props) => {
             >
                 <h2>Novo Time</h2>
                 <Input  
+                    tipo="text"
                     obrigatorio={true} 
                     for="inome" 
                     id="inome" 
@@ -87,6 +91,7 @@ const Formulario = (props) => {
                     aoAlterado={valor => setNomeTime(valor)}
                 />
                 <Input 
+                    tipo="color"
                     obrigatorio={true} 
                     for="icor" 
                     id="icor" 
