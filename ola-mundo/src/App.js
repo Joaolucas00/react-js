@@ -3,7 +3,7 @@ import SobreMim from "./paginas/SobreMim";
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {
-  //const pagina = window.location.pathname === "/sobremim" ? <SobreMim/> : <Inicio/> JavaScript puro
+  //const pagina = window.location.pathname === "/sobremim" ? <SobreMim/> : <Inicio/> JavaScript puro (quase)
 
 
   return (
