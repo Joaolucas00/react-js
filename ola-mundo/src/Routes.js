@@ -3,7 +3,7 @@ import SobreMim from "./paginas/SobreMim";
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import MenuNav from "./componentes/MenuNav";
 
-function App() {
+function AppRoutes() {
   //const pagina = window.location.pathname === "/sobremim" ? <SobreMim/> : <Inicio/> JavaScript puro (quase)
 
 
@@ -19,4 +19,4 @@ function App() {
   )
 }
 
-export default App;
+export default AppRoutes;
