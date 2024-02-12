@@ -1,6 +1,7 @@
 import Inicio from "./paginas/Inicio";
 import SobreMim from "./paginas/SobreMim";
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import MenuNav from "./componentes/MenuNav";
 
 function App() {
   //const pagina = window.location.pathname === "/sobremim" ? <SobreMim/> : <Inicio/> JavaScript puro (quase)
@@ -8,6 +9,7 @@ function App() {
 
   return (
       <BrowserRouter>
+        <MenuNav/>
         <Routes>
           <Route path="/" element={<Inicio/>} />
           <Route path="/sobremim" element={<SobreMim/>}/>
