@@ -1,6 +1,6 @@
 import Inicio from "./paginas/Inicio";
 import SobreMim from "./paginas/SobreMim";
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MenuNav from "./componentes/MenuNav";
 
 function AppRoutes() {
