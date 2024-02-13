@@ -68,3 +68,15 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+  Na rota "/", a estrutura a ser renderizada é:
+    <PaginaPadra>
+      <Inicio/>
+    </PaginaPadrao>
+
+  Na rota "/sobremim", a estrutura a ser renderizada é:
+    <PaginaPadra>
+      <SobreMim/>
+    </PaginaPadrao>
+
