@@ -5,6 +5,7 @@ import MenuNav from "./componentes/MenuNav";
 import Rodape from "componentes/Rodape";
 import PaginaPadrao from "componentes/PaginaPadrao";
 import Conteudo from "paginas/Conteudo";
+import NotFound from "componentes/NotFound";
 
 function AppRoutes() {
   //const pagina = window.location.pathname === "/sobremim" ? <SobreMim/> : <Inicio/> JavaScript puro (quase)
@@ -20,7 +21,7 @@ function AppRoutes() {
             <Route path="posts/:id" element={<Conteudo/>}/>
           </Route>
           
-          <Route path="*" element={<h1>Página não encontrada</h1>}/>
+          <Route path="*" element={<NotFound/>}/>
         </Routes>
 
         <Rodape/>
