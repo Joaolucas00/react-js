@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
+
 const EstilosGlobais = createGlobalStyle`
     html {
   line-height: 1.15; 
@@ -80,7 +81,7 @@ button,
 [type="button"],
 [type="reset"],
 [type="submit"] {
-  -webkit-appearance: button;
+    //-webkit-appearance: button;
 }
 button::-moz-focus-inner,
 [type="button"]::-moz-focus-inner,
@@ -122,7 +123,7 @@ textarea {
   height: auto;
 }
 [type="search"] {
-  -webkit-appearance: textfield; 
+ // -webkit-appearance: textfield; 
   outline-offset: -2px; 
 }
 [type="search"]::-webkit-search-decoration {
