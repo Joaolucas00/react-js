@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import ItemNav from "./ItemNav"
+import Banner from "../Banner"
 
 const ListaEstilizada = styled.ul`
     list-style: none;
@@ -9,9 +10,10 @@ const ListaEstilizada = styled.ul`
 
 `
 
+
 const BarraLateral = () => {
     return (
-        <aside>
+        <aside style={{display: "flex"}}>
             <nav>
                 <ListaEstilizada>
                     <ItemNav 
@@ -25,6 +27,7 @@ const BarraLateral = () => {
                     > Home</ItemNav>
                 </ListaEstilizada>
             </nav>
+            <Banner texto="A galeria mais completa de fotos do espaço!"></Banner>
         </aside>
     )
 }
