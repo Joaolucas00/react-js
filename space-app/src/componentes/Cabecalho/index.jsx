@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import Input from "../Input"
 
 const HeaderEstilizado = styled.header`
     padding: 60px 0;
@@ -10,11 +11,11 @@ const HeaderEstilizado = styled.header`
 
 `
 
- const Cabecalho = ({children}) => {
+ const Cabecalho = () => {
     return (
         <HeaderEstilizado>
             <img src="/imagens/logo.png" alt="logo"></img>
-            {children}
+            <Input/>
         </HeaderEstilizado>
     )
 }
