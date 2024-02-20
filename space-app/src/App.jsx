@@ -2,8 +2,10 @@ import { styled } from 'styled-components'
 import EstilosGlobais from './componentes/EstilosGlobais'
 import Cabecalho from './componentes/Cabecalho'
 import BarraLateral from './componentes/BarraLateral'
-import Banner from './componentes/Banner'
 import Galeria from './componentes/Galeria'
+import Tags from './componentes/Tags'
+import Imagens from './componentes/Imagnes'
+
 
 const FundoGradiente = styled.div`
   background: linear-gradient(174.61deg, #041833 4.16%, #04244F 48%, #154580 96.76%);
@@ -17,10 +19,12 @@ const AppContainer = styled.div`
 `
 
 const ConteudoGaleria = styled.section`
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
 `
 
 function App() {
@@ -29,8 +33,10 @@ function App() {
       <AppContainer>
         <Cabecalho/>
         <BarraLateral/>
+        <Tags></Tags>
         <ConteudoGaleria>
           <Galeria/>
+          <Imagens/>
         </ConteudoGaleria>
       </AppContainer>
       <EstilosGlobais/>
