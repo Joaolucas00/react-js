@@ -5,7 +5,8 @@ import BarraLateral from './componentes/BarraLateral'
 import Galeria from './componentes/Galeria'
 import Tags from './componentes/Tags'
 import Imagens from './componentes/Imagnes'
-
+import { useState } from 'react'
+import fotos from './fotos.json'
 
 const FundoGradiente = styled.div`
   background: linear-gradient(174.61deg, #041833 4.16%, #04244F 48%, #154580 96.76%);
@@ -28,6 +29,10 @@ const ConteudoGaleria = styled.section`
 `
 
 function App() {
+
+  const [fotosGaleria, setFotos] = useState(fotos)
+
+
   return (
     <FundoGradiente>
       <AppContainer>
@@ -36,8 +41,8 @@ function App() {
         <Tags></Tags>
         <ConteudoGaleria>
           <Galeria/>
-          <Imagens/>
         </ConteudoGaleria>
+        <Imagens fotos={fotosGaleria}/>
       </AppContainer>
       <EstilosGlobais/>
     </FundoGradiente>
