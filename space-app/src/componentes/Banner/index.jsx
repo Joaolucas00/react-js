@@ -10,6 +10,7 @@ const FiguraEstilizada = styled.figure`
     max-width: 100%;
     min-height: 328px;
     margin: 0;
+    margin-right: 10px;
     background-size: cover;
 `
 
@@ -28,7 +29,7 @@ const Banner = ({ texto }) => {
     return (
         <FiguraEstilizada $backgroundImage="/imagens/planeta-terra-3.jpg">
             <TituloEstilizado>{texto}</TituloEstilizado>
-        </FiguraEstilizada>  
+        </FiguraEstilizada>
     )
 }
 
