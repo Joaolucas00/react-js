@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 const CardDiv = styled.figure`
-    width: ${props => props.$expandida ? '90%' : '460px'};
+    width: ${props => props.$expandida ? '90%' : '400px'};
     margin: 0;
     display: flex;
     flex-direction: column;

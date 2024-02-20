@@ -1,17 +1,16 @@
 import styled from "styled-components"
-import fotos from './fotos.json'
 import { useState } from "react"
+import Card from "./Card"
 
 
 const TituloPopulares = styled.h2`
-    //margin: 2% 10% 5% 0;
     color: #7B78E6;
     font-size: 32px;
+    text-align: center;
 
 `
 
 const TituloNav = styled.h2`
-    //margin: 2% 0 5% 17%;
     color: #7B78E6;
     font-size: 32px;
 `
@@ -33,17 +32,19 @@ const ImagensContainer = styled.section`
 `
 
 
-const Galeria = () => {
-
-    const [fotosGaleria, setFotosGaleria] = useState(fotos)
-
+const Galeria = ({ fotos = []}) => {
     return (
         <>
             <GaleriaContainer>
                 <SecaoFluida>
                     <TituloNav>Navegue pela galeria</TituloNav>
+                    <ImagensContainer>
+                        {fotos.map(foto => <Card fonte={foto.fonte} path={foto.path} titulo={foto.titulo}/>)}
+                    </ImagensContainer>
                 </SecaoFluida>
-                <TituloPopulares>Populares</TituloPopulares>
+                <div style={{minWidth: 212}}>
+                    <TituloPopulares>Populares</TituloPopulares>
+                </div>
             </GaleriaContainer>
         </>
     )
