@@ -1,14 +1,9 @@
 import styled from "styled-components"
 import { useState } from "react"
 import Card from "./Card"
+import CardPopulares from "../CardPopulares"
 
 
-const TituloPopulares = styled.h2`
-    color: #7B78E6;
-    font-size: 32px;
-    text-align: center;
-
-`
 
 const TituloNav = styled.h2`
     color: #7B78E6;
@@ -43,7 +38,7 @@ const Galeria = ({ fotos = [], aoSelecionarFoto }) => {
                     </ImagensContainer>
                 </SecaoFluida>
                 <div style={{minWidth: 212}}>
-                    <TituloPopulares>Populares</TituloPopulares>
+                    <CardPopulares/>
                 </div>
             </GaleriaContainer>
         </>
