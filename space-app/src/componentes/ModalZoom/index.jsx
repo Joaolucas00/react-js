@@ -11,9 +11,9 @@ const Overlay = styled.div`
 `
 
 const DialogEstilizado = styled.dialog`
-    position: absolute;
-    top: 294px;
-    margin: 0;
+    position: fixed;
+    top: 5%;
+    margin: auto;
     background: transparent;
     padding: 0;
     border: 0;
@@ -45,7 +45,7 @@ const ModalZoom = ({ foto, aoFechar }) => {
             <DialogEstilizado open={!!foto} onClose={aoFechar}>
                 <Card foto={foto} expandida={true}></Card>
             <form method="dialog">
-                <BotaoIcone onSubmit={"dialog"}>
+                <BotaoIcone>
                     <img src="/icones/fechar.png" alt="Icone de fechar" />
                 </BotaoIcone>
             </form>

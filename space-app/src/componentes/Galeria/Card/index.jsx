@@ -33,10 +33,14 @@ const BotaoIcone = styled.button`
     margin-right: 20px;
 `
 
+const ImgEstilizado = styled.img`
+    height: ${props => props.$expandida ? '60%' : ''};
+`
+
 const Card = ({expandida = false, foto, aoZoom}) => {
     return (
             <CardDiv $expandida={expandida}>
-                <img src={foto.path} alt="foto"></img>
+                <ImgEstilizado $expandida={expandida} src={foto.path} alt="foto"></ImgEstilizado>
                 <figcaption>
                     <h3>{foto.titulo}</h3>
                     <footer> 
