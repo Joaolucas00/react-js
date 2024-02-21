@@ -26,6 +26,13 @@ const CardDiv = styled.figure`
     }
 `
 
+const BotaoIcone = styled.button`
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-right: 20px;
+`
+
 const Card = ({expandida = false, foto, aoZoom}) => {
     return (
             <CardDiv $expandida={expandida}>
@@ -36,12 +43,13 @@ const Card = ({expandida = false, foto, aoZoom}) => {
                         {expandida ? 
                         <>
                         <p>{foto.fonte}</p>
-                        <button>Favorito</button>
+                        <BotaoIcone><img src="/icones/favorito.png" alt="" /></BotaoIcone>
                         </>
                         :
                         <> <p>{foto.fonte}</p>
-                        <button>Favorito</button>
-                        <button onClick={() => aoZoom(foto)}>Expandir</button></>}
+                        <BotaoIcone><img src="/icones/favorito.png" alt="" /></BotaoIcone>
+                        <BotaoIcone onClick={() => aoZoom(foto)}><img src="/icones/expandir.png" alt="" /></BotaoIcone>
+                        </>}
 
                     </footer>
                 </figcaption>
