@@ -26,7 +26,7 @@ const CardDiv = styled.figure`
     }
 `
 
-const Card = ({titulo, path, fonte, expandida = false}) => {
+const Card = ({titulo, path, fonte, expandida = false, aoZoom, foto}) => {
     return (
             <CardDiv $expandida={expandida}>
                 <img src={path} alt="foto"></img>
@@ -35,7 +35,7 @@ const Card = ({titulo, path, fonte, expandida = false}) => {
                     <footer>
                         <p>{fonte}</p>
                         <button>Favorito</button>
-                        <button>Expandir</button>
+                        <button onClick={() => aoZoom(foto)}>Expandir</button>
                     </footer>
                 </figcaption>
             </CardDiv>
