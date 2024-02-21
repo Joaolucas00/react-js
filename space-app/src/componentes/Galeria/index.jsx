@@ -39,7 +39,7 @@ const Galeria = ({ fotos = [], aoSelecionarFoto }) => {
                 <SecaoFluida>
                     <TituloNav>Navegue pela galeria</TituloNav>
                     <ImagensContainer>
-                        {fotos.map(foto => <Card aoZoom={aoSelecionarFoto} fonte={foto.fonte} path={foto.path} titulo={foto.titulo} foto={foto}/>)}
+                        {fotos.map(foto => <Card key={foto.id}  aoZoom={aoSelecionarFoto} foto={foto}/>)}
                     </ImagensContainer>
                 </SecaoFluida>
                 <div style={{minWidth: 212}}>

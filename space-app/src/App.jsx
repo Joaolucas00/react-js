@@ -42,7 +42,7 @@ function App() {
           <Galeria aoSelecionarFoto={foto => setFotoSelecionada(foto)} fotos={fotosGaleria}/>
         </ConteudoGaleria>
       </AppContainer>
-      <ModalZoom foto={fotoSelecionada}></ModalZoom>
+      <ModalZoom aoFechar={() => setFotoSelecionada(null)} foto={fotoSelecionada}></ModalZoom>
       <EstilosGlobais/>
     </FundoGradiente>
   )
