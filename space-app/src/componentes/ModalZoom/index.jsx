@@ -37,13 +37,13 @@ const BotaoIcone = styled.button`
 `
 
 
-const ModalZoom = ({ foto, aoFechar }) => {
+const ModalZoom = ({ foto, aoFechar, aoAlterarFavorito }) => {
     return (foto &&
         <>
             
             <Overlay/>
             <DialogEstilizado open={!!foto} onClose={aoFechar}>
-                <Card foto={foto} expandida={true}></Card>
+                <Card foto={foto} expandida={true} aoAlterarFavorito={aoAlterarFavorito}></Card>
             <form method="dialog">
                 <BotaoIcone>
                     <img src="/icones/fechar.png" alt="Icone de fechar" />

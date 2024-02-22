@@ -33,7 +33,18 @@ function App() {
   const [fotoSelecionada, setFotoSelecionada] = useState(null)
 
   const aoAlterarFavorito = (foto) => {
-    console.log(foto);
+    if(foto.id === fotoSelecionada?.id) {
+      setFotoSelecionada({
+        ...fotoSelecionada,
+        favorito: !fotoSelecionada.favorito
+      })
+    }
+    setFotosGaleria(fotosGaleria.map(fotoGaleria => {
+      return {
+        ...fotoGaleria,
+        favorito: fotoGaleria.id === foto.id ? !fotoGaleria.favorito : fotoGaleria.favorito
+      }
+    }))
   }
 
   return (
@@ -46,7 +57,7 @@ function App() {
           <Galeria aoAlterarFavorito={aoAlterarFavorito} aoSelecionarFoto={foto => setFotoSelecionada(foto)} fotos={fotosGaleria}/>
         </ConteudoGaleria>
       </AppContainer>
-      <ModalZoom aoFechar={() => setFotoSelecionada(null)} foto={fotoSelecionada}></ModalZoom>
+      <ModalZoom aoAlterarFavorito={aoAlterarFavorito} aoFechar={() => setFotoSelecionada(null)} foto={fotoSelecionada}></ModalZoom>
       <EstilosGlobais/>
     </FundoGradiente>
   )

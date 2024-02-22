@@ -45,23 +45,18 @@ const FooterEstilizado = styled.footer`
 
 
 const Card = ({expandida = false, foto, aoZoom, aoAlterarFavorito}) => {
+
+    const iconeFavorito = foto.favorito ? "/icones/favorito-ativo.png" : "/icones/favorito.png"
+
     return (
             <CardDiv $expandida={expandida}>
                 <img src={foto.path} alt="foto"></img>
                 <figcaption>
                     <h3>{foto.titulo}</h3>
                     <FooterEstilizado> 
-                        {expandida ? 
-                        <>
-                        <p >{foto.fonte}</p>
-                        <BotaoIcone onClick={foto => aoAlterarFavorito(foto)}><img src="/icones/favorito.png" alt="" /></BotaoIcone>
-                        </>
-                        :
-                        <> <p>{foto.fonte}</p>
-                        <BotaoIcone onClick={() => aoAlterarFavorito(foto)}><img src="/icones/favorito.png" alt="" /></BotaoIcone>
-                        <BotaoIcone onClick={() => aoZoom(foto)}><img src="/icones/expandir.png" alt="" /></BotaoIcone>
-                        </>}
-
+                    <p>{foto.fonte}</p>
+                    <BotaoIcone onClick={() => aoAlterarFavorito(foto)}><img src={iconeFavorito} alt="" /></BotaoIcone>
+                        {!expandida && <BotaoIcone onClick={() => aoZoom(foto)}><img src="/icones/expandir.png" alt="" /></BotaoIcone>}
                     </FooterEstilizado>
                 </figcaption>
             </CardDiv>
