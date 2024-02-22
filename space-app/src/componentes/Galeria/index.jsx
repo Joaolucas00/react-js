@@ -27,14 +27,14 @@ const ImagensContainer = styled.section`
 `
 
 
-const Galeria = ({ fotos = [], aoSelecionarFoto }) => {
+const Galeria = ({ fotos = [], aoSelecionarFoto, aoAlterarFavorito }) => {
     return (
         <>
             <GaleriaContainer>
                 <SecaoFluida>
                     <TituloNav>Navegue pela galeria</TituloNav>
                     <ImagensContainer>
-                        {fotos.map(foto => <Card key={foto.id}  aoZoom={aoSelecionarFoto} foto={foto}/>)}
+                        {fotos.map(foto => <Card key={foto.id} aoAlterarFavorito={aoAlterarFavorito} aoZoom={aoSelecionarFoto} foto={foto}/>)}
                     </ImagensContainer>
                 </SecaoFluida>
                 <div style={{minWidth: 212}}>

@@ -32,6 +32,10 @@ function App() {
   const [fotosGaleria, setFotosGaleria] = useState(fotos)
   const [fotoSelecionada, setFotoSelecionada] = useState(null)
 
+  const aoAlterarFavorito = (foto) => {
+    console.log(foto);
+  }
+
   return (
     <FundoGradiente>
       <AppContainer>
@@ -39,7 +43,7 @@ function App() {
         <BarraLateral/>
         <Tags></Tags>
         <ConteudoGaleria>
-          <Galeria aoSelecionarFoto={foto => setFotoSelecionada(foto)} fotos={fotosGaleria}/>
+          <Galeria aoAlterarFavorito={aoAlterarFavorito} aoSelecionarFoto={foto => setFotoSelecionada(foto)} fotos={fotosGaleria}/>
         </ConteudoGaleria>
       </AppContainer>
       <ModalZoom aoFechar={() => setFotoSelecionada(null)} foto={fotoSelecionada}></ModalZoom>

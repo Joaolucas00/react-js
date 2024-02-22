@@ -33,27 +33,36 @@ const BotaoIcone = styled.button`
     margin-right: 20px;
 `
 
+const FooterEstilizado = styled.footer`
+    display: flex;
+    justify-content: space-between;
+    
+    p {
+        flex-grow: 1;
+    }
+`
 
 
-const Card = ({expandida = false, foto, aoZoom}) => {
+
+const Card = ({expandida = false, foto, aoZoom, aoAlterarFavorito}) => {
     return (
             <CardDiv $expandida={expandida}>
                 <img src={foto.path} alt="foto"></img>
                 <figcaption>
                     <h3>{foto.titulo}</h3>
-                    <footer> 
+                    <FooterEstilizado> 
                         {expandida ? 
                         <>
-                        <p>{foto.fonte}</p>
-                        <BotaoIcone><img src="/icones/favorito.png" alt="" /></BotaoIcone>
+                        <p >{foto.fonte}</p>
+                        <BotaoIcone onClick={foto => aoAlterarFavorito(foto)}><img src="/icones/favorito.png" alt="" /></BotaoIcone>
                         </>
                         :
                         <> <p>{foto.fonte}</p>
-                        <BotaoIcone><img src="/icones/favorito.png" alt="" /></BotaoIcone>
+                        <BotaoIcone onClick={() => aoAlterarFavorito(foto)}><img src="/icones/favorito.png" alt="" /></BotaoIcone>
                         <BotaoIcone onClick={() => aoZoom(foto)}><img src="/icones/expandir.png" alt="" /></BotaoIcone>
                         </>}
 
-                    </footer>
+                    </FooterEstilizado>
                 </figcaption>
             </CardDiv>
     )
