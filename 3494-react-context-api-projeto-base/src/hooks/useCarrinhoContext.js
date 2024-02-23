@@ -42,12 +42,18 @@ function removerProduto(id) {
     setCarrinho([...carrinhoAtualizado])
     }
 
-    
+   function removerProdutoCarrinho(id) {
+    const produto = carrinho.filter((itemDoCarrinho) => {
+        return itemDoCarrinho.id !== id
+    })
+    setCarrinho(produto)
+   } 
 
     return {
         carrinho,
         setCarrinho,
         adicionarProduto,
-        removerProduto
+        removerProduto,
+        removerProdutoCarrinho
     }
 }
