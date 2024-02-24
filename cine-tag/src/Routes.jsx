@@ -3,12 +3,14 @@ import MenuNavegacao from "./componentes/MenuNavegacao"
 import Favoritos from "./paginas/Favoritos"
 import Home from "./paginas/Home"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
+import EstilosGlobais from "./componentes/EstilosGlobais"
 
 
 function AppRoutes() {
 
   return (
     <BrowserRouter>
+    <EstilosGlobais/>
     <MenuNavegacao/>
     <FavoritoProvider>
       <Routes>
