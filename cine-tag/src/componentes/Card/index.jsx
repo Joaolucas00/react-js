@@ -22,6 +22,7 @@ const TituloCard = styled.h2`
 const CapaCard = styled.img`
     width: 100%;
     height: 100%;
+    border-radius: 10px 10px 0 0;
 `
 
 const IconeFavorito = styled.div`
