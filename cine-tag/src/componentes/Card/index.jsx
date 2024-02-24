@@ -4,9 +4,9 @@ const DivCard = styled.div`
     display: flex;
     background-color: #76767678;
     border-radius: 10px;
-    box-shadow: 7px 5px 36px red;
+    box-shadow: 2px 5px 15px #00000070;
     width: 16.125em;
-    height: 25.4375em;
+    height: 35.4375em;
     flex-direction: column;
 
 `

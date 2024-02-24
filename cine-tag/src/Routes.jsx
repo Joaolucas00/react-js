@@ -16,6 +16,7 @@ function AppRoutes() {
           <Route path="/" element={<PaginaPrincipal/>}>
             <Route index element={<Home/>}/>
             <Route path="favoritos" element={<Favoritos/>}/>
+            <Route path="player" element={<h1>PlayVideo</h1>}/>
           </Route>
         </Routes>
     </FavoritoProvider>
