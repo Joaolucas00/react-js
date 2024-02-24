@@ -3,9 +3,9 @@ import { useContext } from "react"
 
 
 const Favoritos = () => {
-    const {teste, setTeste} = useContext(FavoritoContext)
+    const {favoritos, setFavoritos} = useContext(FavoritoContext)
     return (
-        <h1>Favoritos. Teste: {teste}</h1>
+        <h1>Favoritos. Teste: {favoritos}</h1>
     )
 }
 

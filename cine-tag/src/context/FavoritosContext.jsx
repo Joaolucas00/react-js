@@ -3,9 +3,9 @@ import { createContext, useState } from "react"
 export const FavoritoContext = createContext()
 
 const FavoritoProvider = ({children}) => {
-    const [teste, setTeste] = useState("oi")
+    const [favoritos, setFavoritos] = useState([])
     return (
-        <FavoritoContext.Provider value={{teste, setTeste}}>
+        <FavoritoContext.Provider value={{favoritos, setFavoritos}}>
             {children}
         </FavoritoContext.Provider>
     )
