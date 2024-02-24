@@ -1,6 +1,7 @@
-import { Link, useLocation } from "react-router-dom"
-import styles from './MenuNavegacao.module.css'
+import { Link, Outlet, useLocation } from "react-router-dom"
+import styles from './PaginaPrincipal.module.css'
 import styled from "styled-components"
+import Rodape from "../Rodape"
 
 const NavegacaoFlex = styled.nav`
     display: flex;
@@ -16,15 +17,19 @@ const NavegacaoFlex = styled.nav`
     box-sizing: border-box;
     a {
         font-size: 1.5rem;
+        font-family: 'Montserrat';
+        font-weight: 300;
     }
-
-    
 ` 
 
-const MenuNavegacao = () => {
+const ConteudoPrincipal = styled.main`
+    height: 90vh;
+`
+
+const PaginaPrincipal = () => {
 
     const localizacao = useLocation()
-    return (
+    return (<>
         <NavegacaoFlex>
         <Link to="/" style={{flexGrow: 1}}>
             <img src="/imagens/logo.png" alt="logo"></img>
@@ -32,7 +37,12 @@ const MenuNavegacao = () => {
         <Link to="/" className={`${localizacao.pathname === "/" ? styles.linkCorrente : styles.link}`}>Home</Link>
         <Link to="/favoritos" className={`${localizacao.pathname === "/favoritos" ? styles.linkCorrente : styles.link}`} >Favoritos</Link>
         </NavegacaoFlex>
+        <ConteudoPrincipal>
+            <Outlet/>
+        </ConteudoPrincipal>
+        <Rodape/>
+        </>
     )
 }
 
-export default MenuNavegacao
+export default PaginaPrincipal
