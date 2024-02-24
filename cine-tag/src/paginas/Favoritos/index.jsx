@@ -1,8 +1,11 @@
+import { FavoritoContext } from "../../context/FavoritosContext"
+import { useContext } from "react"
 
 
 const Favoritos = () => {
+    const {teste, setTeste} = useContext(FavoritoContext)
     return (
-        <h1>Favoritos</h1>
+        <h1>Favoritos. Teste: {teste}</h1>
     )
 }
 
