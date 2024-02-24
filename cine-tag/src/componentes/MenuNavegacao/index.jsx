@@ -1,13 +1,13 @@
 import { Link, useLocation } from "react-router-dom"
-import styledModule from './MenuNavegacao.module.css'
+import styles from './MenuNavegacao.module.css'
 import styled from "styled-components"
 
-const HeaderNavegacaoFlex = styled.header`
+const NavegacaoFlex = styled.nav`
     display: flex;
     gap: 40px;
-    height: 88px;
+    height: 10vh;
     width: 100%;
-    padding: 0% 21% 0% 15%;
+    padding: 0% 21% 0% 10%;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
@@ -18,23 +18,20 @@ const HeaderNavegacaoFlex = styled.header`
         font-size: 1.5rem;
     }
 
-    img {
-        height: 70%;
-        width: 100%;
-        margin-right: 60%;
-    }
-
+    
 ` 
 
 const MenuNavegacao = () => {
 
     const localizacao = useLocation()
     return (
-        <HeaderNavegacaoFlex>
-        <img src="/imagens/logo.png" alt="logo"></img>
-        <Link to="/" className={`${localizacao.pathname === "/" ? styledModule.linkCorrente : styledModule.link}`}>Home</Link>
-        <Link to="/favoritos" className={`${localizacao.pathname === "/favoritos" ? styledModule.linkCorrente : styledModule.link}`} >Favoritos</Link>
-        </HeaderNavegacaoFlex>
+        <NavegacaoFlex>
+        <Link to="/" style={{flexGrow: 1}}>
+            <img src="/imagens/logo.png" alt="logo"></img>
+        </Link>            
+        <Link to="/" className={`${localizacao.pathname === "/" ? styles.linkCorrente : styles.link}`}>Home</Link>
+        <Link to="/favoritos" className={`${localizacao.pathname === "/favoritos" ? styles.linkCorrente : styles.link}`} >Favoritos</Link>
+        </NavegacaoFlex>
     )
 }
 
