@@ -1,0 +1,10 @@
+.linkCorrente {
+    text-decoration: underline;
+    color: black;
+}
+
+.link {
+    color: rgb(32, 121, 255);
+    text-decoration: none;
+    font-style: normal;
+}

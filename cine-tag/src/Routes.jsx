@@ -5,7 +5,7 @@ import Home from "./paginas/Home"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 
 
-function App() {
+function AppRoutes() {
 
   return (
     <BrowserRouter>
@@ -20,4 +20,4 @@ function App() {
   )
 }
 
-export default App
+export default AppRoutes
