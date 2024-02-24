@@ -8,6 +8,7 @@ const FotterEstilizado = styled.footer`
     align-content: center;
     justify-content: center;
     align-items: center;
+    margin-top: 5%;
 `
 
 const TituloFooter = styled.h3`
