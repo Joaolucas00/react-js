@@ -2,6 +2,7 @@ import { Link, Outlet, useLocation } from "react-router-dom"
 import styles from './PaginaPrincipal.module.css'
 import styled from "styled-components"
 import Rodape from "../Rodape"
+import Banner from "../Banner"
 
 const NavegacaoFlex = styled.nav`
     display: flex;
@@ -29,6 +30,8 @@ const ConteudoPrincipal = styled.main`
 const PaginaPrincipal = () => {
 
     const localizacao = useLocation()
+    console.log(localizacao);
+
     return (<>
         <NavegacaoFlex>
         <Link to="/" style={{flexGrow: 1}}>
@@ -36,7 +39,9 @@ const PaginaPrincipal = () => {
         </Link>            
         <Link to="/" className={`${localizacao.pathname === "/" ? styles.linkCorrente : styles.link}`}>Home</Link>
         <Link to="/favoritos" className={`${localizacao.pathname === "/favoritos" ? styles.linkCorrente : styles.link}`} >Favoritos</Link>
+        
         </NavegacaoFlex>
+        <Banner urlImagem={localizacao.pathname.replace('/', '') || 'home'}/>
         <ConteudoPrincipal>
             <Outlet/>
         </ConteudoPrincipal>
