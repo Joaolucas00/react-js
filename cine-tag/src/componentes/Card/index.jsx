@@ -8,7 +8,6 @@ const DivCard = styled.div`
     width: 16.125em;
     height: 35.4375em;
     flex-direction: column;
-
 `
 
 const TituloCard = styled.h2`
