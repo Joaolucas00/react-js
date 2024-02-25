@@ -30,7 +30,7 @@ const ConteudoPrincipal = styled.main`
 const PaginaPrincipal = () => {
 
     const localizacao = useLocation()
-
+    console.log(localizacao.pathname);
     return (<>
         <NavegacaoFlex>
         <Link to="/" style={{flexGrow: 1}}>
@@ -40,7 +40,7 @@ const PaginaPrincipal = () => {
         <Link to="/favoritos" className={`${localizacao.pathname === "/favoritos" ? styles.linkCorrente : styles.link}`} >Favoritos</Link>
 
         </NavegacaoFlex>
-        <Banner urlImagem={localizacao.pathname.replace('/', '') || 'home'}/>
+        <Banner urlImagem={localizacao.pathname.replace(/[0-9]/, '').replaceAll('/', '') || 'home'}/>
         <ConteudoPrincipal>
             <Outlet/>
         </ConteudoPrincipal>

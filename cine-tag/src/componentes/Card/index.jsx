@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { useFavoritoContext } from "../../context/FavoritosContext"
 import styled from "styled-components"
 
@@ -8,7 +9,13 @@ const DivCard = styled.div`
     box-shadow: 2px 5px 15px #00000070;
     width: 16.125em;
     height: 35.4375em;
+    justify-content: space-between;
     flex-direction: column;
+    & > a {
+        font-style: normal;
+        text-decoration: none;
+        color: black;
+    }
 `
 
 const TituloCard = styled.h2`
@@ -39,8 +46,10 @@ const Card = ({capa, titulo, id}) => {
     const icone = favoritado ? '/imagens/favorite.png' : '/imagens/favorite_outline.png'
     return(
         <DivCard>
-            <CapaCard src={capa} alt={titulo}/>
-            <TituloCard>{titulo}</TituloCard>
+            <Link to={`/player/${id}`}>
+                <CapaCard src={capa} alt={titulo}/>
+                <TituloCard>{titulo}</TituloCard>
+            </Link>
             <IconeFavorito><img onClick={() => adicionarFavorito({id, titulo, capa})} src={icone} alt="icone de favorito"/></IconeFavorito>            
         </DivCard>
     )
