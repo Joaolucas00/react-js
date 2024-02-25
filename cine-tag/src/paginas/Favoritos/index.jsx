@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import { FavoritoContext } from "../../context/FavoritosContext"
 import { useContext } from "react"
+import Card from "../../componentes/Card"
 
 
 const TituloPrincipal = styled.h1`
@@ -24,11 +25,12 @@ const ConteudosCardsFavoritos = styled.section`
 `
 
 const Favoritos = () => {
+    const { favoritos } = useContext(FavoritoContext)
     return (
         <ConteudosFavoritos>
             <TituloPrincipal>Favoritos. Teste:</TituloPrincipal>
             <ConteudosCardsFavoritos>
-
+                {favoritos.map(fav => <Card {...fav } key={fav.id}></Card>)}
             </ConteudosCardsFavoritos>
         </ConteudosFavoritos>
     )

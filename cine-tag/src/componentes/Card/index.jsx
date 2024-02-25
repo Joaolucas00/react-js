@@ -1,3 +1,4 @@
+import { useFavoritoContext } from "../../context/FavoritosContext"
 import styled from "styled-components"
 
 const DivCard = styled.div`
@@ -33,11 +34,14 @@ const IconeFavorito = styled.div`
 
 
 const Card = ({capa, titulo, id}) => {
+    const {favoritos, adicionarFavorito} = useFavoritoContext()
+    const favoritado = favoritos.some((fav) => fav.id === id)
+    const icone = favoritado ? '/imagens/favorite.png' : '/imagens/favorite_outline.png'
     return(
         <DivCard>
             <CapaCard src={capa} alt={titulo}/>
             <TituloCard>{titulo}</TituloCard>
-            <IconeFavorito><img src="imagens/favorite_outline.png" alt="icone de favorito"/></IconeFavorito>            
+            <IconeFavorito><img onClick={() => adicionarFavorito({id, titulo, capa})} src={icone} alt="icone de favorito"/></IconeFavorito>            
         </DivCard>
     )
 

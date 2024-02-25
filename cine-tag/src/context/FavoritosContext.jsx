@@ -25,7 +25,6 @@ export function useFavoritoContext() {
         }
 
         novaLista = favoritos.filter((fav) => fav.id !== novoFavorito.id)
-        
         return setFavoritos(novaLista)
 
     }
