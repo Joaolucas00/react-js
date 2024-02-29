@@ -1,0 +1,57 @@
+div.card {
+    position: relative;
+    margin: 5px;
+    width: 20%;
+}
+
+.card .cabecalho {
+    background-color: #F0F0F0;
+    border-radius: 10px 10px 0 0;
+}
+
+img.foto {
+    border-radius: 50%;
+    width: 50%;
+    position: relative;
+    bottom: -50px;
+
+}
+
+h4 {
+    color: #6278F7;
+    font-family: 'Nanum Myeongjo';
+    font-size: 1.3rem;
+    line-height: 22px;
+}
+
+h5 {
+    font-family: 'Nanum Myeongjo';
+    font-size: 1.1rem;
+    margin: 1px;
+}
+
+.card .rodape {
+    background-color: #FFFFFF;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.274);
+    padding-top: 90px;
+    padding-bottom: 40px;
+    border-radius: 0 0 10px 10px;
+}
+
+
+.deletar {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    cursor: pointer;
+    border-radius: 10%;
+    padding: 3px;
+    font-weight: 500;
+    font-size: 0.875rem;
+    font-family: 'Montserrat';
+}
+
+.favorito {
+    margin: 5px;
+    cursor: pointer;
+}

@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Montserrat:wght@200;300;400;500&family=Nanum+Myeongjo&family=Open+Sans:wght@300;400;600&family=Raleway:wght@200;400;500&display=swap');
+
+.time h3 {
+    display: inline-block;
+    font-size: 2rem;
+    font-family: 'Cormorant Garamond';
+    font-weight: 400;
+    margin: 10px 50px 61px 50px;
+    border-bottom: 1px solid;
+}
+
+section.time {
+    text-align: center;
+    box-sizing: border-box;
+    background-color: aquamarine;
+    width: 100%;
+    padding: 1%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+.cards-flex {
+    display: flex;
+    gap: 35px 50px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-cor {
+    border: none;
+    background-color: white;
+    text-align: end;
+    position: absolute;
+    left: 85%;
+}
