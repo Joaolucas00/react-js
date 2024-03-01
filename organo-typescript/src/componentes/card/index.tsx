@@ -1,8 +1,16 @@
+import { ICadastrados } from '../../interfaces/ICadastrados'
 import './Card.css'
 import { AiFillCloseCircle, AiFillHeart, AiOutlineHeart} from 'react-icons/ai'
 
+interface CardProps {
+    colaborador: ICadastrados
+    corPrimaria: string
+    aoDeletar: (id: string) => void
+    aoFavoritar: (pessoa: any) => void
+}
 
-const Card = ({ colaborador, corPrimaria, aoDeletar, aoFavoritar}) => {
+
+const Card = ({ colaborador, corPrimaria, aoDeletar, aoFavoritar}: CardProps) => {
 
     const propsfavorito = {
         size: 25,

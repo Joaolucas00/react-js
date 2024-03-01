@@ -1,13 +1,23 @@
 import { useState } from 'react'
-import Card from '../card'
 import './Time.css'
+import { ICadastrados } from '../../interfaces/ICadastrados'
+import Card from '../card'
 
-const Time = (props) => {
+interface TimeProps {
+    corPrimaria: string
+    corSecundaria: string
+    cadastrados: Array<ICadastrados>
+    titulo: string
+    aoDeletar: (id: string) => void
+    aoFavoritar: (pessoa: ICadastrados) => void
+}
+
+const Time = (props: TimeProps) => {
 
     const [corFundo , setMudarCorFundo] = useState(props.corSecundaria);
     const [corCard, setCorCard] = useState(props.corPrimaria)
 
-    const mudarCor = (evento) => {
+    const mudarCor = (evento: string): void => {
         setCorCard(evento)
         setMudarCorFundo(evento + '8F')
     }
