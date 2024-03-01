@@ -38,7 +38,7 @@ const Formulario = (props: FormularioProps) => {
 
     const salvarNovoTime = (evento: React.FormEvent<HTMLFormElement>) => {
         evento.preventDefault()
-        props.aoCriarTime({nome: nomeTime, corSecundaria: corTime + '8F', corPrimaria: corTime})
+        props.aoCriarTime({nome: nomeTime, corSecundaria: corTime + '8F', corPrimaria: corTime, id: uuidv4()})
         setNomeTime('')
         setCorTime('#000000')
     } 

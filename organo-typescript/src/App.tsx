@@ -2,7 +2,8 @@ import { useState } from 'react';
 import Banner from './componentes/Banner';
 import Formulario from './componentes/Formulario';
 import Time from './componentes/time';
-import {v4 as uuidv4} from 'uuid'
+import { ICadastrados } from './interfaces/ICadastrados';
+import { ITimes } from './interfaces/ITimes';
 
 function App() {
   // useEffect, faz com que o React executar algo só depois do componente ser redenrizado
@@ -46,22 +47,24 @@ function App() {
     }
   ])
 
-  const [cadastrado, setCadastrado] = useState([])
+  const [cadastrado, setCadastrado] = useState<ICadastrados[]>([])
 
-  const aoCadastro = (colaborador) => {
+  const aoCadastro = (colaborador: ICadastrados) => {
     console.log("Cadastro: ", cadastrado);
     setCadastrado([...cadastrado, colaborador])
   }
 
-  const aoCriarTime = (novoTime) => {
-    setTimes([...times, {...novoTime, id: uuidv4()}])
+  const aoCriarTime = (novoTime: ITimes) => {
+    setTimes([...times, {...novoTime}])
+    console.log("Times", times);
+    
   }
 
-  const deletarColaborador = (id) => {
+  const deletarColaborador = (id: string) => {
     setCadastrado(cadastrado.filter(colaborador => colaborador.id !== id))
   }
 
-  const aoFavoritar = (pessoa) => {
+  const aoFavoritar = (pessoa: ICadastrados) => {
     setCadastrado(cadastrado.map(colaborador => {
       if (colaborador.id === pessoa.id) {
         colaborador.favorito = !pessoa.favorito

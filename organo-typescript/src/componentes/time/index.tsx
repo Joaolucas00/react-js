@@ -24,7 +24,7 @@ const Time = (props: TimeProps) => {
 
 
     return (
-        (props.cadastrados.length > 0) && <section className='time' style={{ backgroundColor: corFundo, backgroundImage: "url(imagens/fundo.png)" }}>
+        (props.cadastrados.length > 0) ? <section className='time' style={{ backgroundColor: corFundo, backgroundImage: "url(imagens/fundo.png)" }}>
             <input value={corCard} type='color' className='input-cor' onChange={evento => mudarCor(evento.target.value)}/>
             <h3 style={{borderColor: props.corPrimaria}}>{props.titulo}</h3>
             <div className='cards-flex'>
@@ -38,7 +38,7 @@ const Time = (props: TimeProps) => {
                     />
                     })}
             </div>
-        </section>
+        </section> : <></>
         )
 }
 
