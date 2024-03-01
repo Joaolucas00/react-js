@@ -42,7 +42,7 @@ const Formulario = (props) => {
                 <Input  
                     tipo="text"
                     obrigatorio={true} 
-                    for="inome" 
+                    htmlFor="inome" 
                     id="inome" 
                     label="Nome" 
                     placeholder="digite seu nome"
@@ -52,7 +52,7 @@ const Formulario = (props) => {
                 <Input 
                     tipo="text"
                     obrigatorio={true} 
-                    for="icargo" 
+                    htmlFor="icargo" 
                     id="icargo" 
                     label="Cargo" 
                     placeholder="digite seu cargo"
@@ -62,7 +62,7 @@ const Formulario = (props) => {
                 <Input 
                     tipo="text"
                     obrigatorio={true} 
-                    for="iimagem" 
+                    htmlFor="iimagem" 
                     id="iimagem" 
                     label="Imagem" 
                     placeholder="Informe o endereço da imagem"
@@ -83,8 +83,8 @@ const Formulario = (props) => {
                 <Input  
                     tipo="text"
                     obrigatorio={true} 
-                    for="inome" 
-                    id="inome" 
+                    htmlFor="iinome" 
+                    id="iinome" 
                     label="Nome" 
                     placeholder="digite o nome do time"
                     valor={nomeTime}
@@ -93,7 +93,7 @@ const Formulario = (props) => {
                 <Input 
                     tipo="color"
                     obrigatorio={true} 
-                    for="icor" 
+                    htmlFor="icor" 
                     id="icor" 
                     label="Cor" 
                     placeholder="Digite a cor do Time"

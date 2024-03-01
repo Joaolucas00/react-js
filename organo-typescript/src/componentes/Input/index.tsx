@@ -6,22 +6,22 @@ interface InputProps {
     label: string
     valor: string
     obrigatorio: boolean
-    for: string
+    htmlFor: string
     id: string
     tipo: string
 }
 
-const Input = (props: InputProps) => {
+const Input = ({ aoAlterado, htmlFor, id, label, obrigatorio, placeholder, tipo, valor}: InputProps) => {
 
 
     const aoDigitar = (evento: React.ChangeEvent<HTMLInputElement>) => {
-        props.aoAlterado(evento.target.value)
+        aoAlterado(evento.target.value)
     }
 
     return (
         <div className="campo-texto">
-            <label htmlFor={props.for}>{props.label}</label>
-            <input value={props.valor} onChange={aoDigitar} required={props.obrigatorio} type={props.tipo} placeholder={`${props.placeholder}...`} id={props.id}/>
+            <label htmlFor={htmlFor}>{label}</label>
+            <input value={valor} onChange={aoDigitar} required={obrigatorio} type={tipo} placeholder={`${placeholder}...`} id={id}/>
         </div>
     )
 }
