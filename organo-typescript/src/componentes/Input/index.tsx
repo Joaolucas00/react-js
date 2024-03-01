@@ -5,13 +5,13 @@ interface InputProps {
     placeholder: string
     label: string
     valor: string
-    obrigatorio: boolean
+    obrigatorio?: boolean
     htmlFor: string
     id: string
     tipo: string
 }
 
-const Input = ({ aoAlterado, htmlFor, id, label, obrigatorio, placeholder, tipo, valor}: InputProps) => {
+const Input = ({ aoAlterado, htmlFor, id, label, placeholder, tipo, valor, obrigatorio = false}: InputProps) => {
 
 
     const aoDigitar = (evento: React.ChangeEvent<HTMLInputElement>) => {

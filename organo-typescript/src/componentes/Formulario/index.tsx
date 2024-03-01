@@ -3,9 +3,21 @@ import Input from '../Input'
 import ListaSuspensa from '../ListaSuspensa'
 import Botao from '../Botao'
 import { useState } from 'react'
+import { ICadastrados } from '../../interfaces/ICadastrados'
+import { ITimes } from '../../interfaces/ITimes'
 import {v4 as uuidv4} from 'uuid'
 
-const Formulario = (props) => {
+interface FormularioProps {
+    aoCadastrar: (colaborador: ICadastrados) => void
+    aoCriarTime: (times: ITimes) => void
+    action: string
+    times: Array<string>
+    method: string
+    autocomplete: string
+    titulo: string
+}
+
+const Formulario = (props: FormularioProps) => {
 
     
     const [nome, setNome] = useState('')
@@ -15,7 +27,7 @@ const Formulario = (props) => {
     const [nomeTime, setNomeTime] = useState('')
     const [corTime, setCorTime] = useState('#000000')
 
-    const aoSalvar = (evento) => {
+    const aoSalvar = (evento: React.FormEvent<HTMLFormElement>) => {
         evento.preventDefault()
         props.aoCadastrar({id: uuidv4(), nome: nome, cargo: cargo, imagem: imagem, time: time, favorito: false})
         setNome('')
@@ -24,7 +36,7 @@ const Formulario = (props) => {
         setTime('Programação')
     }
 
-    const salvarNovoTime = (evento) => {
+    const salvarNovoTime = (evento: React.FormEvent<HTMLFormElement>) => {
         evento.preventDefault()
         props.aoCriarTime({nome: nomeTime, corSecundaria: corTime + '8F', corPrimaria: corTime})
         setNomeTime('')

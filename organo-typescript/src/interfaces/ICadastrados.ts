@@ -3,6 +3,6 @@ export interface ICadastrados {
     nome: string
     cargo: string
     imagem: string
-    time: string
+    time?: string
     favorito: boolean
 }
