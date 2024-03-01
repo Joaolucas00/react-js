@@ -4,12 +4,12 @@ import './Botao.css'
 import React from 'react'
 
 interface BotaoProps {
-    chilren: ReactElement
+    children: ReactElement
 }
 
 const Botao = (props: BotaoProps) => {
     return (<button>
-        {props.chilren}
+        {props.children}
     </button>)
 }
 

@@ -72,7 +72,7 @@ function App() {
 
   return (
     <div className="App">
-      <Banner/>
+      <Banner src='/imagens/banner.png' alt='banner do organo'/>
       <Formulario times={times.map(time => time.nome)} aoCadastrar={cadastro => aoCadastro(cadastro)} titulo="Dados do colaborador" method="get" action="/" autocomplete="on" aoCriarTime={(time) => aoCriarTime(time)}/>
 
     {times.map(time => <Time 
