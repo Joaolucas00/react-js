@@ -9,7 +9,7 @@ function App() {
   // useEffect, faz com que o React executar algo só depois do componente ser redenrizado
   // pode causar looping ifinito, primeiro argumento é a fn a ser executada, o segundo um array que pode ser vazio, ou ter uma depedencia
 
-  const [times, setTimes] = useState([
+  const [times, setTimes] = useState<ITimes[]>([
     {
       nome: 'Programação',
       corPrimaria: '#57C278',
@@ -49,22 +49,22 @@ function App() {
 
   const [cadastrado, setCadastrado] = useState<ICadastrados[]>([])
 
-  const aoCadastro = (colaborador: ICadastrados) => {
+  const aoCadastro = (colaborador: ICadastrados): void => {
     console.log("Cadastro: ", cadastrado);
     setCadastrado([...cadastrado, colaborador])
   }
 
-  const aoCriarTime = (novoTime: ITimes) => {
+  const aoCriarTime = (novoTime: ITimes): void => {
     setTimes([...times, {...novoTime}])
     console.log("Times", times);
     
   }
 
-  const deletarColaborador = (id: string) => {
+  const deletarColaborador = (id: string): void => {
     setCadastrado(cadastrado.filter(colaborador => colaborador.id !== id))
   }
 
-  const aoFavoritar = (pessoa: ICadastrados) => {
+  const aoFavoritar = (pessoa: ICadastrados): void => {
     setCadastrado(cadastrado.map(colaborador => {
       if (colaborador.id === pessoa.id) {
         colaborador.favorito = !pessoa.favorito
