@@ -1,9 +1,20 @@
 import './Input.css'
 
-const Input = (props) => {
+interface InputProps {
+    aoAlterado: (valor: string) => void
+    placeholder: string
+    label: string
+    valor: string
+    obrigatorio: boolean
+    for: string
+    id: string
+    tipo: string
+}
+
+const Input = (props: InputProps) => {
 
 
-    const aoDigitar = (evento) => {
+    const aoDigitar = (evento: React.ChangeEvent<HTMLInputElement>) => {
         props.aoAlterado(evento.target.value)
     }
 
