@@ -1,10 +1,14 @@
 import React from 'react';
 import Form from './componentes/Form';
+import ListaDeEstudos from './componentes/ListaDeEstudos';
+
+
 function App() {
-  return (<>
-    <h1>Olá, Mundo!</h1>
-    <Form/>
-    </>
+  return (
+    <div className='App'>
+      <Form/>
+      <ListaDeEstudos/>
+    </div>
   );
 }
 

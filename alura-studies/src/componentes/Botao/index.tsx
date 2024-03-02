@@ -1,3 +1,5 @@
+import styles from './Botao.module.css'
+
 
 interface BotaoProps {
     texto: string
@@ -5,7 +7,7 @@ interface BotaoProps {
 
 const Botao = ({texto}: BotaoProps) => {
     return (
-        <button>{texto}</button>
+        <button className={styles.botao}>{texto}</button>
     )
 }
 
