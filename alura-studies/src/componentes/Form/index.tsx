@@ -11,15 +11,10 @@ const Form = () => {
     const [novoTempo, setNovoTempo] = useState('')
 
     const {listaDeEstudos, setListaDeEstudos} = useListaDeEstudos()
-    
-    const adicionarEstudo = (event: React.FormEvent<HTMLFormElement>): void => {   
+    const adicionarEstudo = (event: React.FormEvent<HTMLFormElement>): void => {
         event.preventDefault()
         const novoEstudo: IListaDeEstudos = {id: uuIdv4(), aula: novaAula, tempo: novoTempo}
         setListaDeEstudos([...listaDeEstudos, novoEstudo])
-        console.log({...listaDeEstudos});
-        console.log([...listaDeEstudos]);
-        
-        
     }
 
 
