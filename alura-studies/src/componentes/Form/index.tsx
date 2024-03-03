@@ -2,8 +2,14 @@ import Botao from "../Botao"
 import style from './style.module.scss'
 
 const Form = () => {
+    
+    const adicionarEstudo = (event: React.FormEvent<HTMLFormElement>): void => {   
+        
+    }
+
+
     return (
-        <form className={style.novaTarefa}>
+        <form className={style.novaTarefa} onSubmit={adicionarEstudo}>
             <div className={style.inputContainer}>
                 <label htmlFor="">Adicione um novo estudo</label>
                 <input type="text" name="tarefa" id="tarefa" placeholder="O que você quer estudar?" required/>

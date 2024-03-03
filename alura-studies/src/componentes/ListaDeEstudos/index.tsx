@@ -3,20 +3,12 @@ import { IListaDeEstudos } from "../../interfaces/IListaDeEstudos"
 import style from './style.module.scss'
 import Lista from "./Lista"
 import {v4 as uuIdv4} from 'uuid'
+import { useListaDeEstudos } from "../../context/ListaDeEstudosContext"
 
 
 const ListaDeEstudos = () => {
 
-    const [listaDeEstudos, setListaDeEstudos] = useState<IListaDeEstudos[]>([
-        {id: uuIdv4(), aula: "Java", tempo: "01:00:00"},
-        {id: uuIdv4(), aula: "Java", tempo: "01:00:00"},
-        {id: uuIdv4(), aula: "Java", tempo: "01:00:00"},
-        {id: uuIdv4(), aula: "Java", tempo: "01:00:00"},
-        {id: uuIdv4(), aula: "Java", tempo: "01:00:00"},
-        {id: uuIdv4(), aula: "Java", tempo: "01:00:00"},
-        {id: uuIdv4(), aula: "Java", tempo: "01:00:00"},
-        {id: uuIdv4(), aula: "Java", tempo: "01:00:00"},
-    ]) 
+    const {listaDeEstudos} = useListaDeEstudos()
 
     return (
         (listaDeEstudos.length > 0) ? <aside className={style.listaTarefas}>

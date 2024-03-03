@@ -1,12 +1,16 @@
 import Form from './componentes/Form';
 import ListaDeEstudos from './componentes/ListaDeEstudos';
+import ListaDeEstudosProvider from './context/ListaDeEstudosContext';
+import { IListaDeEstudos } from './interfaces/IListaDeEstudos';
 import style from './style.module.scss'
 
 function App() {
   return (
     <div className={style.AppStyle}>
-      <Form/>
-      <ListaDeEstudos/>
+      <ListaDeEstudosProvider>
+        <Form/>
+        <ListaDeEstudos/>
+      </ListaDeEstudosProvider>
     </div>
   );
 }
