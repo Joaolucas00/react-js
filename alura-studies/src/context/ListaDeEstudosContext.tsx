@@ -3,8 +3,10 @@ import {v4 as uuIdv4} from 'uuid'
 import { IListaDeEstudos } from "../interfaces/IListaDeEstudos";
 
 interface ListaEstudoContextType {
-    listaDeEstudos: IListaDeEstudos[]
-    setListaDeEstudos: React.Dispatch<React.SetStateAction<IListaDeEstudos[]>>
+    listaDeEstudos: IListaDeEstudos[];
+    setListaDeEstudos: React.Dispatch<React.SetStateAction<IListaDeEstudos[]>>;
+    estudoSelecionado: IListaDeEstudos | undefined;
+    setEstudoSelecionado: React.Dispatch<React.SetStateAction<IListaDeEstudos | undefined>>
 }
 
 interface ListaEstudosProps {
@@ -15,13 +17,11 @@ export const ListaDeEstudosContext = createContext<ListaEstudoContextType | unde
 
 export default function ListaDeEstudosProvider({children}: ListaEstudosProps) {
 
-    const [listaDeEstudos, setListaDeEstudos] = useState<IListaDeEstudos[]>([
-        {id: uuIdv4(), aula: "Java", tempo: "01:00:00", completado: false, selecionado: false},
-        {id: uuIdv4(), aula: "Python", tempo: "01:00:00", completado: false, selecionado: false},
-    ]) 
+    const [listaDeEstudos, setListaDeEstudos] = useState<IListaDeEstudos[]>([]) 
+    const [estudoSelecionado, setEstudoSelecionado] = useState<IListaDeEstudos>()
     
     return (
-        <ListaDeEstudosContext.Provider value={{listaDeEstudos, setListaDeEstudos}}>
+        <ListaDeEstudosContext.Provider value={{listaDeEstudos, setListaDeEstudos, estudoSelecionado, setEstudoSelecionado}}>
                 {children}
         </ListaDeEstudosContext.Provider>
     )

@@ -12,7 +12,7 @@ const ListaDeEstudos = () => {
             <h2>Estudos do dia</h2>
             <ul>
                 {listaDeEstudos.map((estudo) => {
-                    return (<Lista key={estudo.id} listaDeEstudos={estudo}/>)
+                    return (<Lista key={estudo.id} listaDeEstudosCorrente={estudo}/>)
                 })} 
             </ul> 
         </aside> : <aside className={style.listaTarefas}><h2>Não há estudos</h2></aside>
