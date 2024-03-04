@@ -16,8 +16,8 @@ export const ListaDeEstudosContext = createContext<ListaEstudoContextType | unde
 export default function ListaDeEstudosProvider({children}: ListaEstudosProps) {
 
     const [listaDeEstudos, setListaDeEstudos] = useState<IListaDeEstudos[]>([
-        {id: uuIdv4(), aula: "Java", tempo: "01:00:00"},
-        {id: uuIdv4(), aula: "Java", tempo: "01:00:00"},
+        {id: uuIdv4(), aula: "Java", tempo: "01:00:00", completado: false, selecionado: false},
+        {id: uuIdv4(), aula: "Python", tempo: "01:00:00", completado: false, selecionado: false},
     ]) 
     
     return (

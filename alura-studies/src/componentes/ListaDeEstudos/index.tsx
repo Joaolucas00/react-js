@@ -1,8 +1,5 @@
-import { useState } from "react"
-import { IListaDeEstudos } from "../../interfaces/IListaDeEstudos"
 import style from './style.module.scss'
 import Lista from "./Lista"
-import {v4 as uuIdv4} from 'uuid'
 import { useListaDeEstudos } from "../../context/ListaDeEstudosContext"
 
 
