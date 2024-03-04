@@ -10,6 +10,8 @@ const Lista = ({listaDeEstudosCorrente}: ListaProps) => {
 
     const {listaDeEstudos, estudoSelecionado, setEstudoSelecionado, setListaDeEstudos} = useListaDeEstudos()
 
+
+
     const selecionarEstudo = (estudo_selecionado: IListaDeEstudos) => {
         setEstudoSelecionado(estudo_selecionado)
         setListaDeEstudos(estudoAnterior => estudoAnterior.map(estudo => ({
@@ -24,9 +26,10 @@ const Lista = ({listaDeEstudosCorrente}: ListaProps) => {
     
 
     return (
-    <li className={`${style.item} ${listaDeEstudosCorrente.selecionado ? style.itemSelecionado: ''}`} onClick={() => selecionarEstudo(listaDeEstudosCorrente)}>
+    <li className={`${style.item} ${listaDeEstudosCorrente.selecionado ? style.itemSelecionado: ''} ${listaDeEstudosCorrente.completado ? style.itemCompletado : ''}`} onClick={() => !listaDeEstudosCorrente.completado && selecionarEstudo(listaDeEstudosCorrente)}>
         <h3>{listaDeEstudosCorrente.aula}</h3>
         <span>{listaDeEstudosCorrente.tempo}</span>
+        {listaDeEstudosCorrente.completado && <span className={style.concluido} aria-label="estudo completado"></span>}
     </li>
 )
 }
