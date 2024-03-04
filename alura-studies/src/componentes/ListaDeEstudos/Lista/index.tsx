@@ -1,6 +1,6 @@
 import { useListaDeEstudos } from "../../../context/ListaDeEstudosContext"
 import { IListaDeEstudos } from "../../../interfaces/IListaDeEstudos"
-import style from '../style.module.scss'
+import style from './style.module.scss'
 
 interface ListaProps {
     listaDeEstudosCorrente: IListaDeEstudos
