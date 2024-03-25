@@ -43,9 +43,6 @@ function App() {
     }
     setEventos([...eventos])
   }
-  const deletarEvento = (id: number) => {
-    setEventos([...eventos.filter(evento => evento.id !== id)])
-  }
 
   const aplicarFiltro = (data: Date | null) => {
     setFiltro(data)
@@ -62,11 +59,11 @@ function App() {
       <div className={style.App}>
         <div className={style.Coluna}>
           <Card>
-            <Formulario aoSalvar={adicionarEvento} />
+            <Formulario/>
           </Card>
           <hr />
           <Card>
-            <ListaDeEventos aoFiltroAplicado={aplicarFiltro} aoAlterarStatus={alterarStatusEvento} aoDeletarEvento={deletarEvento}/>
+            <ListaDeEventos aoFiltroAplicado={aplicarFiltro} aoAlterarStatus={alterarStatusEvento}/>
           </Card>
         </div>
         <div className={style.Coluna}>
