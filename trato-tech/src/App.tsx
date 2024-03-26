@@ -1,7 +1,13 @@
+import EstilosGlobais from "./componentes/EstilosGlobais"
+import NavBar from "./componentes/NavBar"
+
 
 function App() {
   return (
-    <h1>Olá, Mundo!</h1>
+    <>
+      <EstilosGlobais/>
+      <NavBar></NavBar>
+    </>
   )
 }
 
