@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import PaginaPadrao from "./componentes/PaginaPadrao"
+import Home from "./paginas/Home"
 
 
 
@@ -8,7 +9,7 @@ function AppRoutes() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<PaginaPadrao/>}>
-          <Route index element={<div>Olá</div>}/>
+          <Route index element={<Home/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
