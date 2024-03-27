@@ -16,7 +16,7 @@ const Home = () => {
                 imagem={imagem}
                 className={styles.header}
             />
-            <div className={styles.categoiras}>
+            <div className={styles.categorias}>
                 <div className={styles['categorias-title']}>
                     <h1>Categorias</h1>
                 </div>
