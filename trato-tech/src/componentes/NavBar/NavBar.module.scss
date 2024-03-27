@@ -41,7 +41,7 @@
 }
 
 .link {
-  color: white;
+  color: rgb(255, 255, 255);
   font-size: 22px;
 }
 
@@ -54,6 +54,7 @@
 
 .selected {
   font-weight: bold;
+  color: white;
   text-decoration: underline;
 }
 
