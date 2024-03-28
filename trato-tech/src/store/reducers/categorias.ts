@@ -11,6 +11,7 @@ import jogosHeader from '../../assets/categorias/header/jogos.png';
 import somHeader from '../../assets/categorias/header/som.png';
 import { ICategorias } from '../../interfaces/ICategorias';
 
+
 const initialState: ICategorias[] = [{
   nome: 'Eletrônicos',
   thumbnail: eletronicosThumb,
