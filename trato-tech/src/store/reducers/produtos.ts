@@ -25,8 +25,9 @@ import caixaSom from '../../assets/itens/caixa-som.png';
 import caixaSomBluetooth from '../../assets/itens/caixa-som-bluetooth.png';
 import miniSystem from '../../assets/itens/mini-system.png';
 import tablet from '../../assets/itens/tablet.png';
+import { IProdutos } from '../../interfaces/IProdutos';
 
-const initialState = [{
+const initialState: IProdutos[] = [{
   titulo: 'Assistente virtual',
   descricao: 'Conheça nosso smart speaker de maior sucesso ainda melhor. O novo design de áudio com direcionamento frontal (1 speaker de 1,6") garante mais graves e um som completo.',
   foto: assistenteVirtual,
