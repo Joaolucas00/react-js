@@ -1,6 +1,10 @@
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
 import { IProdutos } from '../../interfaces/IProdutos'
 import styles from './Produto.module.scss'
+import { FaCartPlus } from 'react-icons/fa'
+import { useDispatch } from 'react-redux'
+import { mudarFavorito } from '../../store/reducers/produtos'
+// import { AppDispatch } from '../../store'
 
 const iconeProps = {
     size: 24,
@@ -12,6 +16,14 @@ interface ProdutoProps {
 }
 
 const Produto = ({ produto }: ProdutoProps) => {
+
+    const dispatch = useDispatch()
+
+    const alterarFavorito = () => {
+        dispatch(mudarFavorito(produto.id))
+    }
+
+
     return (
         <div className={styles.item}>
             <div className={styles['item-imagem']}>
@@ -28,8 +40,9 @@ const Produto = ({ produto }: ProdutoProps) => {
                     </div>
                     <div className={styles['item-acoes']}>
                         {produto.favorito 
-                        ? <AiFillHeart {...iconeProps} color='#ff0000' className={styles['item-acao']}/> 
-                        : <AiOutlineHeart {...iconeProps} className={styles['item-acao']}/>}
+                        ? <AiFillHeart onClick={alterarFavorito} {...iconeProps} color='#ff0000' className={styles['item-acao']}/> 
+                        : <AiOutlineHeart onClick={alterarFavorito} {...iconeProps} className={styles['item-acao']}/>}
+                        <FaCartPlus {...iconeProps} color={true ? '#1875E8' : iconeProps.color} className={styles['item-acao']}/>
                     </div>
                 </div>
             </div>

@@ -233,7 +233,16 @@ const initialState: IProdutos[] = [{
 const produtosSlice = createSlice({
     name: 'produtos',
     initialState,
-    reducers: {}
+    reducers: {
+      mudarFavorito: (state, { payload }): void => {
+        state = state.map(produto => {
+          if (produto.id === payload) produto.favorito = !produto.favorito;
+          return produto;
+        })
+      },
+    }
 })
+
+export const { mudarFavorito } = produtosSlice.actions
 
 export default produtosSlice.reducer;
