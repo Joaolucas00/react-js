@@ -3,7 +3,7 @@ import styles from './Header.module.scss'
 interface PropsHeader {
     titulo: string,
     descricao: string,
-    imagem: string,
+    imagem?: string,
     className?: string
 }
 

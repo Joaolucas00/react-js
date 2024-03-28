@@ -235,7 +235,7 @@ const produtosSlice = createSlice({
     initialState,
     reducers: {
       mudarFavorito: (state, { payload }): void => {
-        state = state.map(produto => {
+        state.map(produto => {
           if (produto.id === payload) produto.favorito = !produto.favorito;
           return produto;
         })

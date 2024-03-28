@@ -11,7 +11,9 @@ const NavBar = () => {
     
     return (
         <nav className={styles.nav}>
-            <img className={styles.logo} src={logo} alt='Logo trato tech'></img>
+            <Link to='/'>
+                <img className={styles.logo} src={logo} alt='Logo trato tech'></img>
+            </Link>
             <div className={styles.links}>
                 <div>
                 <Link to='/' className={`${ localizacao.pathname === '/' ? styles.selected : styles.link}`}>Página inicial</Link>

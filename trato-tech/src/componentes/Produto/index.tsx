@@ -2,8 +2,11 @@ import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
 import { IProdutos } from '../../interfaces/IProdutos'
 import styles from './Produto.module.scss'
 import { FaCartPlus } from 'react-icons/fa'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { mudarFavorito } from '../../store/reducers/produtos'
+import { mudarCarrinho } from '../../store/reducers/carrinho'
+import { RootState } from '../../store'
+import { ICarrinho } from '../../interfaces/ICarrinho'
 // import { AppDispatch } from '../../store'
 
 const iconeProps = {
@@ -17,12 +20,17 @@ interface ProdutoProps {
 
 const Produto = ({ produto }: ProdutoProps) => {
 
+    const estaNoCarrinho = useSelector((state: RootState) => state.carrinho.some(produtoNoCarrinho => produtoNoCarrinho.id === produto.id))
+
     const dispatch = useDispatch()
 
     const alterarFavorito = () => {
         dispatch(mudarFavorito(produto.id))
     }
 
+    const alterarCarrinho = () => {
+        dispatch(mudarCarrinho(produto.id))
+    }
 
     return (
         <div className={styles.item}>
@@ -42,7 +50,7 @@ const Produto = ({ produto }: ProdutoProps) => {
                         {produto.favorito 
                         ? <AiFillHeart onClick={alterarFavorito} {...iconeProps} color='#ff0000' className={styles['item-acao']}/> 
                         : <AiOutlineHeart onClick={alterarFavorito} {...iconeProps} className={styles['item-acao']}/>}
-                        <FaCartPlus {...iconeProps} color={true ? '#1875E8' : iconeProps.color} className={styles['item-acao']}/>
+                        <FaCartPlus {...iconeProps} color={estaNoCarrinho ? '#1875E8' : iconeProps.color} className={styles['item-acao']} onClick={alterarCarrinho}/>
                     </div>
                 </div>
             </div>
