@@ -22,7 +22,6 @@ const Carrinho = () => {
             }
             return itens
         }, [])
-        console.log("Log dessa merda: ", carrinhoReduce);
         
         return {
             carrinho: carrinhoReduce,
