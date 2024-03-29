@@ -1,4 +1,5 @@
 import styles from './Header.module.scss'
+import carrinhoImagem from '../../assets/download-carrinho.png'
 
 interface PropsHeader {
     titulo: string,
@@ -15,7 +16,7 @@ const Header = ({ titulo, descricao, imagem, className}: PropsHeader) => {
                 <h2>{ descricao }</h2>
             </div>
             <div className={styles.headerImagem}>
-                <img src={imagem} alt='Imagem'></img>
+                <img src={imagem ? imagem : carrinhoImagem} alt='Imagem'></img>
             </div>
         </header>
     )
