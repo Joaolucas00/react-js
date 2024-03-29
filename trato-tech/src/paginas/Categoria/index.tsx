@@ -8,10 +8,13 @@ import Produto from "../../componentes/Produto"
 
 const Categoria = () => {
     const { nomeCategoria } = useParams()
-    const { categoria, produtos } = useSelector((state: RootState) =>({ 
+    const { categoria, produtos } = useSelector((state: RootState) => { 
+        const regexp = new RegExp(state.busca, 'i')
+        return {
         categoria: state.categorias.find(categoria => categoria.id === nomeCategoria) as ICategorias,
-        produtos: state.produtos.filter(produto => produto.categoria === nomeCategoria)
-    })) 
+        produtos: state.produtos.filter(produto => produto.categoria === nomeCategoria && produto.titulo.match(regexp))
+        }
+    }) 
     return (
         <div>
            <Header titulo={categoria.nome} imagem={categoria.header} descricao={categoria.descricao}/>
