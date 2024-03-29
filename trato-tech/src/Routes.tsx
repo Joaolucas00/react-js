@@ -4,6 +4,7 @@ import Home from "./paginas/Home"
 import Categoria from "./paginas/Categoria"
 import NotFound from "./paginas/NotFound"
 import Carrinho from "./paginas/Carrinho"
+import Anuncie from "./paginas/Anuncie"
 
 
 
@@ -15,6 +16,7 @@ function AppRoutes() {
           <Route index element={<Home/>}/>
           <Route path="categoria/:nomeCategoria" element={<Categoria/>}/>
           <Route path="carrinho" element={<Carrinho/>}/>
+          <Route path="anuncie" element={<Anuncie/>}/>
         </Route>
         <Route path="*" element={<NotFound/>}/>
       </Routes>

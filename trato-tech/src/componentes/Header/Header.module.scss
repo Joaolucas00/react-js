@@ -54,3 +54,16 @@
     }
   }
 }
+
+.headerSemImagem {
+  display: grid;
+  grid-template-areas: 'texto imagem';
+  grid-template-columns: 1fr;
+  justify-content: space-between;
+  align-items: center;
+  justify-items: center;
+}
+
+.textCenter {
+  text-align: center;
+}
