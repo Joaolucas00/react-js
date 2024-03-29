@@ -17,8 +17,8 @@ const Anuncie = () => {
             titulo: '',
             categoria: '',
             descricao: '',
-            imagem: '',
-            preco: ''
+            foto: '',
+            preco: 0
         }
     })
 
@@ -32,14 +32,14 @@ const Anuncie = () => {
             <form className={styles.formulario} onSubmit={handleSubmit(cadastrar)}>
                 <input {...register('titulo', { required: true })} placeholder="Nome do produto" alt="nomde do produto"/>
                 <input {...register('descricao', { required: true })} placeholder="Descrição do produto" alt="Descrição do produto"/>
-                <input {...register('imagem',  { required: true })} placeholder="URL da imagem do produto" alt="URL da imagem do produto"/>
+                <input {...register('foto',  { required: true })} placeholder="URL da imagem do produto" alt="URL da imagem do produto"/>
                 <select {...register('categoria', { required: true })}>
                     <option value='' disabled >Selecione a categoria</option>
                     {categorias.map(categoria => (
                         <option key={categoria.id} value={categoria.id}>{categoria.nome}</option>
                     ))}
                 </select>
-                <input {...register('preco', { required: true })} type="number" placeholder="Preço do produto"/>
+                <input {...register('preco', { required: true, valueAsNumber: true })} type="number" placeholder="Preço do produto"/>
                 <Botao type="submit" onClick={() => {}}>Cadastrar produto</Botao>
             </form>
         </div>

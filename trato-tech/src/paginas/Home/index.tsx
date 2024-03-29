@@ -4,6 +4,8 @@ import imagem from '../../assets/inicial.png'
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
+import Botao from '../../componentes/Botao';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     const navigate = useNavigate();
@@ -15,7 +17,9 @@ const Home = () => {
                 descricao='Compre diversos tipos de produtos no melhor site do Brasil!'
                 imagem={imagem}
                 className={styles.header}
-            />
+            >
+                <Link className={styles.link} to='/anuncie'><Botao>Quero anunciar</Botao></Link>
+            </Header>
             <div className={styles.categorias}>
                 <div className={styles['categorias-title']}>
                     <h1>Categorias</h1>

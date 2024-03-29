@@ -1,3 +1,4 @@
+import { ReactNode } from 'react'
 import styles from './Header.module.scss'
 
 
@@ -5,10 +6,11 @@ interface PropsHeader {
     titulo: string,
     descricao: string,
     imagem?: string,
-    className?: string
+    className?: string,
+    children?: ReactNode
 }
 
-const Header = ({ titulo, descricao, imagem, className}: PropsHeader) => {
+const Header = ({ titulo, descricao, imagem, className, children}: PropsHeader) => {
     return (
         <header className={`${styles.header} ${!imagem ? styles.headerSemImagem : ''} ${className}`}>
             <div className={`${styles.headerTexto} ${!imagem ? styles.textCenter : ''}`}>
@@ -20,6 +22,7 @@ const Header = ({ titulo, descricao, imagem, className}: PropsHeader) => {
                 <img src={imagem} alt='Imagem'></img>
             </div>
             }
+            {children}
         </header>
     )
 }

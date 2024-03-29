@@ -3,8 +3,8 @@ import styles from './Botao.module.scss'
 
 interface BotaoProps {
     children?: ReactNode,
-    type: any,
-    onClick: () => void
+    type?: any,
+    onClick?: () => void
 }
 
 const Botao = ({ children, type, onClick }: BotaoProps) => {
