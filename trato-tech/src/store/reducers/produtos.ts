@@ -240,9 +240,12 @@ const produtosSlice = createSlice({
           return produto;
         })
       },
+      cadastrarProduto: (state, { payload }) => {
+        state.push({...payload, id: uuid()})
+      }
     }
 })
 
-export const { mudarFavorito } = produtosSlice.actions
+export const { mudarFavorito, cadastrarProduto } = produtosSlice.actions
 
 export default produtosSlice.reducer;

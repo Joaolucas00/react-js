@@ -1,27 +1,46 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import Header from "../../componentes/Header"
 import { RootState } from "../../store"
-
+import styles from './Anuncie.module.scss'
+import Botao from "../../componentes/Botao"
+import { useForm } from "react-hook-form"
+import { cadastrarProduto } from "../../store/reducers/produtos"
 
 const Anuncie = () => {
 
-    const categorias = useSelector((state: RootState) => state.categorias)
+    const categorias = useSelector((state: RootState) => state.categorias)    
+    const dispatch = useDispatch()
+
+
+    const {register, handleSubmit } = useForm({
+        defaultValues: {
+            titulo: '',
+            categoria: '',
+            descricao: '',
+            imagem: '',
+            preco: ''
+        }
+    })
+
+    const cadastrar = (data: any) => {
+        dispatch(cadastrarProduto(data))
+    }
 
     return (
-        <div>
+        <div className={styles.container}>
             <Header titulo="Anuncie aqui!" descricao="Crie seus próprios anúncios customizados"/>
-            <form>
-                <input placeholder="Nome do produto" alt="nomde do produto"/>
-                <input placeholder="Descrição do produto" alt="Descrição do produto"/>
-                <input placeholder="URL da imagem do produto" alt="URL da imagem do produto"/>
-                <select>
+            <form className={styles.formulario} onSubmit={handleSubmit(cadastrar)}>
+                <input {...register('titulo', { required: true })} placeholder="Nome do produto" alt="nomde do produto"/>
+                <input {...register('descricao', { required: true })} placeholder="Descrição do produto" alt="Descrição do produto"/>
+                <input {...register('imagem',  { required: true })} placeholder="URL da imagem do produto" alt="URL da imagem do produto"/>
+                <select {...register('categoria', { required: true })}>
                     <option value='' disabled >Selecione a categoria</option>
                     {categorias.map(categoria => (
                         <option key={categoria.id} value={categoria.id}>{categoria.nome}</option>
                     ))}
                 </select>
-                <input type="number" placeholder="Preço do produto"/>
-                <button type="submit">Cadastrar produto</button>
+                <input {...register('preco', { required: true })} type="number" placeholder="Preço do produto"/>
+                <Botao type="submit" onClick={() => {}}>Cadastrar produto</Botao>
             </form>
         </div>
     )
