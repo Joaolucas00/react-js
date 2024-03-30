@@ -1,12 +1,14 @@
-import { AiFillHeart, AiFillMinusCircle, AiFillPlusCircle, AiOutlineHeart } from 'react-icons/ai'
+import { AiFillEdit, AiFillHeart, AiFillMinusCircle, AiFillPlusCircle, AiOutlineCheck, AiOutlineHeart } from 'react-icons/ai'
 import { IProdutos } from '../../interfaces/IProdutos'
 import styles from './Produto.module.scss'
 import { FaCartPlus } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux'
-import { mudarFavorito } from '../../store/reducers/produtos'
+import { mudarFavorito, mudarProduto } from '../../store/reducers/produtos'
 import { mudarCarrinho, mudarQuantidade } from '../../store/reducers/carrinho'
 import { RootState } from '../../store'
 import { ICarrinho } from '../../interfaces/ICarrinho'
+import { useState } from 'react'
+import Input from '../Input'
 // import { AppDispatch } from '../../store'
 
 const iconeProps = {
@@ -25,6 +27,9 @@ interface ProdutoProps {
 }
 
 const Produto = ({ produto, carrinho }: ProdutoProps) => {
+    
+    const [modoDeEdicao, setModoDeEdicao] = useState(false)
+    const [novoTitulo, setNovoTitulo] = useState(produto.titulo)
 
     const estaNoCarrinho = useSelector((state: RootState) => state.carrinho.some(produtoNoCarrinho => produtoNoCarrinho.id === produto.id))
 
@@ -42,6 +47,16 @@ const Produto = ({ produto, carrinho }: ProdutoProps) => {
         dispatch(mudarCarrinho(produto.id))
     }
 
+    const componenteModoDeEdicao = <>
+            { modoDeEdicao 
+               ? <AiOutlineCheck {...iconeProps} className={styles['item-acao']} onClick={() => {
+                setModoDeEdicao(false);
+                dispatch(mudarProduto({id: produto.id, produto: {titulo: novoTitulo}}))
+               }}/>
+                : <AiFillEdit {...iconeProps} className={styles['item-acao']} onClick={() => setModoDeEdicao(true)}/>
+            }
+    </>
+
     return (
         <div className={`${styles.item} ${carrinho ? styles.itemNoCarrinho : ''}`}>
             <div className={styles['item-imagem']}>
@@ -49,7 +64,7 @@ const Produto = ({ produto, carrinho }: ProdutoProps) => {
             </div>
             <div className={styles['item-descricao']}>
                 <div className={styles['item-titulo']}>
-                    <h2>{produto.titulo}</h2>
+                    {modoDeEdicao ? <Input value={novoTitulo} onChange={e => setNovoTitulo(e.target.value)}/> : <h2>{produto.titulo}</h2>}
                     <p>{produto.descricao}</p>
                 </div>
                 <div className={styles['item-info']}>
@@ -74,7 +89,12 @@ const Produto = ({ produto, carrinho }: ProdutoProps) => {
                             </div>
                         )
                         : (
-                        <FaCartPlus {...iconeProps} color={estaNoCarrinho ? '#1875E8' : iconeProps.color} className={styles['item-acao']} onClick={alterarCarrinho}/>)}
+                        <>
+                        <FaCartPlus {...iconeProps} color={estaNoCarrinho ? '#1875E8' : iconeProps.color} className={styles['item-acao']} onClick={alterarCarrinho}/>
+                            {componenteModoDeEdicao}
+                        </>
+                        )
+                        }
                     </div>
                 </div>
             </div>
