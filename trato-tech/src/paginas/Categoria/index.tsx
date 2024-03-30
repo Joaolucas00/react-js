@@ -20,7 +20,7 @@ const Categoria = () => {
     return (
         <div>
            <Header titulo={categoria.nome} imagem={categoria.header} descricao={categoria.descricao}>
-                <Botao onClick={() => navigate(`/anuncie/${categoria.nome}`)}>Quero anunciar</Botao>
+                <Botao onClick={() => navigate(`/anuncie/${categoria.id}`)}>Quero anunciar</Botao>
            </Header>
            <div className={styles.itens}>
                 {produtos.map(produto => (

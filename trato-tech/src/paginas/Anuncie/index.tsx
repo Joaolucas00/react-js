@@ -12,8 +12,6 @@ const Anuncie = () => {
     const { nomeCategoria = '' } = useParams()
     const categorias = useSelector((state: RootState) => state.categorias)    
     const dispatch = useDispatch()
-
-    console.log(nomeCategoria);
     
 
     const {register, handleSubmit } = useForm({
@@ -27,6 +25,7 @@ const Anuncie = () => {
     })
 
     const cadastrar = (data: any) => {
+        console.log(data);
         dispatch(cadastrarProduto(data))
     }
 
@@ -38,7 +37,8 @@ const Anuncie = () => {
                 <input {...register('descricao', { required: true })} placeholder="Descrição do produto" alt="Descrição do produto"/>
                 <input {...register('foto',  { required: true })} placeholder="URL da imagem do produto" alt="URL da imagem do produto"/>
                 <select {...register('categoria', { required: true })} disabled={!!nomeCategoria}>
-                    <option value='' disabled>Selecione a categoria</option>
+                    {nomeCategoria && <option value={nomeCategoria} disabled>{nomeCategoria}</option>}
+                    <option value={nomeCategoria} disabled>Selecione a categoria</option>
                     {categorias.map(categoria => (
                         <option key={categoria.id} value={categoria.id}>{categoria.nome}</option>
                     ))}
