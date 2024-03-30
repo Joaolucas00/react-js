@@ -240,16 +240,20 @@ const produtosSlice = createSlice({
           return produto;
         })
       },
-      cadastrarProduto: (state, { payload }) => {
+      cadastrarProduto: (state, { payload }): void => {
         state.push({...payload, id: uuid()})
       },
-      mudarProduto: (state, { payload }) => {
-        console.log(payload);
-        
+      mudarProduto: (state, { payload }): void => {
+        const index = state.findIndex(produto => produto.id === payload.id)
+        Object.assign(state[index], payload.produto)
+      },
+      deletarProduto: (state, { payload }): void => {
+        const index = state.findIndex(produto => produto.id === payload)
+        state.splice(index, 1)
       }
     }
 })
 
-export const { mudarFavorito, cadastrarProduto, mudarProduto } = produtosSlice.actions
+export const { mudarFavorito, cadastrarProduto, mudarProduto, deletarProduto } = produtosSlice.actions
 
 export default produtosSlice.reducer;

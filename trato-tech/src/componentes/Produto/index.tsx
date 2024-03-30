@@ -1,9 +1,9 @@
-import { AiFillEdit, AiFillHeart, AiFillMinusCircle, AiFillPlusCircle, AiOutlineCheck, AiOutlineHeart } from 'react-icons/ai'
+import { AiFillCloseCircle, AiFillEdit, AiFillHeart, AiFillMinusCircle, AiFillPlusCircle, AiOutlineCheck, AiOutlineHeart } from 'react-icons/ai'
 import { IProdutos } from '../../interfaces/IProdutos'
 import styles from './Produto.module.scss'
 import { FaCartPlus } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux'
-import { mudarFavorito, mudarProduto } from '../../store/reducers/produtos'
+import { deletarProduto, mudarFavorito, mudarProduto } from '../../store/reducers/produtos'
 import { mudarCarrinho, mudarQuantidade } from '../../store/reducers/carrinho'
 import { RootState } from '../../store'
 import { ICarrinho } from '../../interfaces/ICarrinho'
@@ -59,6 +59,7 @@ const Produto = ({ produto, carrinho }: ProdutoProps) => {
 
     return (
         <div className={`${styles.item} ${carrinho ? styles.itemNoCarrinho : ''}`}>
+            <AiFillCloseCircle onClick={() => dispatch(deletarProduto(produto.id))} {...iconeProps} className={`${styles['item-acao']} ${styles['item-deletar']}`}/>
             <div className={styles['item-imagem']}>
                 <img src={produto.foto} alt={produto.titulo}/>
             </div>
