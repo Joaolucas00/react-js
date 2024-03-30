@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import Botao from '../../componentes/Botao';
-import { Link } from 'react-router-dom';
 
 const Home = () => {
     const navigate = useNavigate();
@@ -18,7 +17,7 @@ const Home = () => {
                 imagem={imagem}
                 className={styles.header}
             >
-                <Link className={styles.link} to='/anuncie'><Botao>Quero anunciar</Botao></Link>
+            <Botao onClick={() => navigate('/anuncie')}>Quero anunciar</Botao>
             </Header>
             <div className={styles.categorias}>
                 <div className={styles['categorias-title']}>
