@@ -34,13 +34,6 @@ const produtosSlice = createSlice({
       builder.addCase(getProdutos.fulfilled, (state, { payload }) => {    
         return payload
       })
-      .addCase(getProdutos.pending, (state, { payload }) => {
-        console.log('Carregando produtos: ', payload);
-      })
-      .addCase(getProdutos.rejected, (state, { payload }) => {
-        console.log("Produtos rejeitados");
-        
-      })
     }
 })
 

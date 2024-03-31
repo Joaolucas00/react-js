@@ -3,7 +3,7 @@ import { IProdutos } from "../interfaces/IProdutos"
 
 
 const produtosServices = {
-    get: async (): Promise<IProdutos[]> => {
+    get: async () => {
         const response = await http.get('/itens')
         return response.data
     }
