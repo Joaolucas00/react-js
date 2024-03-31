@@ -1,13 +1,26 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import Header from "../../componentes/Header"
-import { RootState } from "../../store"
+import { AppDispatch, RootState } from "../../store"
 import { useNavigate, useParams } from "react-router-dom"
 import { ICategorias } from "../../interfaces/ICategorias"
 import styles from './Categoria.module.scss'
 import Produto from "../../componentes/Produto"
 import Botao from "../../componentes/Botao"
+import { getCategorias } from "../../store/reducers/categorias"
+import { getProdutos } from "../../store/reducers/produtos"
+import { useEffect } from "react"
 
 const Categoria = () => {
+    
+    const dispatch = useDispatch<AppDispatch>()
+
+    useEffect(() => {
+        dispatch(getCategorias())
+        dispatch(getProdutos())
+    }, [dispatch])
+
+
+
     const navigate = useNavigate()
     const { nomeCategoria } = useParams()
     const { categoria, produtos } = useSelector((state: RootState) => { 
