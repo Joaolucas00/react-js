@@ -10,19 +10,14 @@ export const getCategorias = createAsyncThunk('categorias/get', categoriasServic
 const categoriasSlice = createSlice({
     name: 'categorias',
     initialState,
-    reducers: {
-      addCategorias: (state, { payload }) => {
-        state.push(...payload)
-      }
-    },
+    reducers: {},
     extraReducers: builder => {
       builder.addCase(getCategorias.fulfilled, (state, { payload }) => {
-        state.push(...payload)
+        return payload
       })
     }
 })
 
-export const { addCategorias } = categoriasSlice.actions
 
 export default categoriasSlice.reducer;
   

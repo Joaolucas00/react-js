@@ -1,4 +1,5 @@
 import http from "../common/config/api"
+import { IProdutos } from "../interfaces/IProdutos"
 
 
 const produtosServices = {

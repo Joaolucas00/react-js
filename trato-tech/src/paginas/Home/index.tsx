@@ -5,10 +5,9 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../store';
 import Botao from '../../componentes/Botao';
-import { useCallback, useEffect } from 'react';
-import http from '../../common/config/api';
-import { addCategorias, getCategorias } from '../../store/reducers/categorias';
-import { addProdutos, getProdutos } from '../../store/reducers/produtos';
+import { useEffect } from 'react';
+import { getCategorias } from '../../store/reducers/categorias';
+import { getProdutos } from '../../store/reducers/produtos';
 
 const Home = () => {
 
