@@ -13,7 +13,7 @@ const Categoria = () => {
     const { categoria, produtos } = useSelector((state: RootState) => { 
         const regexp = new RegExp(state.busca, 'i')
         return {
-        categoria: state.categorias.find(categoria => categoria.id === nomeCategoria) as ICategorias,
+        categoria: state.categorias.find(categoria => categoria.id === nomeCategoria) as ICategorias || {},
         produtos: state.produtos.filter(produto => produto.categoria === nomeCategoria && produto.titulo.match(regexp))
         }
     }) 

@@ -1,8 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { v4 as uuid } from 'uuid';
 import { IProdutos } from '../../interfaces/IProdutos';
+import produtosServices from '../../services/produtos';
 
 const initialState: IProdutos[] = [];
+
+export const getProdutos = createAsyncThunk('produtos/get', produtosServices.get)
 
 
 const produtosSlice = createSlice({
@@ -26,12 +29,19 @@ const produtosSlice = createSlice({
         const index = state.findIndex(produto => produto.id === payload)
         state.splice(index, 1)
       },
-      getProdutos: (state, { payload }) => {
+      addProdutos: (state, { payload }) => {
         state.push(...payload)
       }
+    },
+    extraReducers: builder => {
+      builder.addCase(getProdutos.fulfilled, (state, { payload }) => {
+        console.log('payload', payload);
+        
+        state.push(...payload)
+      })
     }
 })
 
-export const { mudarFavorito, cadastrarProduto, mudarProduto, deletarProduto, getProdutos } = produtosSlice.actions
+export const { mudarFavorito, cadastrarProduto, mudarProduto, deletarProduto, addProdutos } = produtosSlice.actions
 
 export default produtosSlice.reducer;
