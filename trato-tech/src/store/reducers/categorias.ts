@@ -25,7 +25,7 @@ const categoriasSlice = createSlice({
         })
         return payload
       })
-      .addCase(getCategorias.pending, (state, { payload }) => {
+      .addCase(getCategorias.pending, () => {
         toast({
           title: 'Carregando',
           description: 'Carregando categorias',
@@ -34,7 +34,7 @@ const categoriasSlice = createSlice({
           isClosable: true
         })
       })
-      .addCase(getCategorias.rejected, (state, { payload }) => {
+      .addCase(getCategorias.rejected, () => {
         toast({title: 'Erro',
         description: 'Erro na busca de categorias',
         status: 'error',
