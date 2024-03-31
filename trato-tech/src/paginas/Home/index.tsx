@@ -1,12 +1,34 @@
-import Header from '../../componentes/Header'
-import styles from './Home.module.scss'
-import imagem from '../../assets/inicial.png'
+import Header from '../../componentes/Header';
+import styles from './Home.module.scss';
+import imagem from '../../assets/inicial.png';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import Botao from '../../componentes/Botao';
+import { useCallback, useEffect } from 'react';
+import http from '../../common/config/api';
+import { getCategorias } from '../../store/reducers/categorias';
+import { getProdutos } from '../../store/reducers/produtos';
 
 const Home = () => {
+
+    const dispatch = useDispatch()
+
+    const buscarCategorias = useCallback(async () => {
+        const response = await http.get('/categorias')
+        dispatch(getCategorias(response.data))
+    }, [dispatch])
+
+    const buscarProdutos = useCallback(async () => {
+        const response = await http.get('/itens')
+        dispatch(getProdutos(response.data))
+    }, [dispatch])
+
+    useEffect(() => {
+        buscarCategorias()
+        buscarProdutos()
+    }, [buscarCategorias, buscarProdutos])
+
     const navigate = useNavigate();
     const categorias = useSelector((state: RootState) => state.categorias)
     return (
