@@ -11,12 +11,17 @@
     "server": "json-server --watch db.json"
   },
   "dependencies": {
+    "@chakra-ui/system": "^2.3.0",
+    "@chakra-ui/toast": "^4.0.0",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
     "@reduxjs/toolkit": "^2.2.2",
     "@types/node-sass": "^4.11.7",
     "@types/react-router-dom": "^5.3.3",
     "@types/styled-components": "^5.1.34",
     "@types/uuid": "^9.0.8",
     "axios": "^1.6.8",
+    "framer-motion": "^7.6.2",
     "json-server": "^1.0.0-alpha.23",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

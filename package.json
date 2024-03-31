@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@chakra-ui/cra-template-typescript": "^2.0.6",
+    "@chakra-ui/toast": "^7.0.2"
+  }
+}
