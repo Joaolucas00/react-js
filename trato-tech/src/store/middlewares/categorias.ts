@@ -11,7 +11,7 @@ export const categoriasListener = createListenerMiddleware();
 
 categoriasListener.startListening({
     actionCreator: carregarCategorias,
-    effect: async (action, { dispatch, fork, unsubscribe }) => {
+    effect: async (_, { dispatch, fork, unsubscribe }) => {
         
         const response = await criarTarefa({fork, dispatch, get: categoriasServices.get, action: adicionarCategorias, textoCarregando: 'Carregando categorias', textoSucesso: 'Categorias carregadas com sucesso', textoErro: 'Erro na busca'})
         if(response.status === 'ok') unsubscribe();
