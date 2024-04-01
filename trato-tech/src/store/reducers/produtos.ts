@@ -31,7 +31,7 @@ const produtosSlice = createSlice({
       }
     },
     extraReducers: builder => {
-      builder.addCase(getProdutos.fulfilled, (state, { payload }) => {    
+      builder.addCase(getProdutos.fulfilled, (_, { payload }) => {    
         return payload
       })
     }

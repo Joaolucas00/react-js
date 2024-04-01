@@ -15,7 +15,7 @@ const categoriasSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: builder => {
-      builder.addCase(getCategorias.fulfilled, (state, { payload }) => {
+      builder.addCase(getCategorias.fulfilled, (_, { payload }) => {
         toast({
           title: 'Sucesso!',
           description: 'Categorias carregadas com sucesso!',
