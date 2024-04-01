@@ -7,9 +7,9 @@ import { RootState } from "..";
 
 
 
-export const listener = createListenerMiddleware();
+export const categoriasListener = createListenerMiddleware();
 
-listener.startListening({
+categoriasListener.startListening({
     actionCreator: carregarCategorias,
     effect: async (action, { dispatch, fork, unsubscribe }) => {
         
@@ -21,7 +21,7 @@ listener.startListening({
 });
 
 
-listener.startListening({
+categoriasListener.startListening({
     actionCreator: carregarUmaCategoria,
     effect: async (action, { fork, dispatch, getState, unsubscribe }) => {
         const { categorias } = getState() as RootState;

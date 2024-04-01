@@ -8,7 +8,6 @@ import Produto from "../../componentes/Produto"
 import Botao from "../../componentes/Botao"
 import { useEffect } from "react"
 import { carregarUmaCategoria } from "../../store/reducers/categorias"
-import { getProdutos } from "../../store/reducers/produtos"
 
 const Categoria = () => {
     const dispatch = useDispatch<AppDispatch>()
@@ -22,8 +21,6 @@ const Categoria = () => {
 
     const { categoria, produtos } = useSelector((state: RootState) => { 
         const regexp = new RegExp(state.busca, 'i')
-        console.log('aaaaaaaa',state.categorias);
-        
         return {
         categoria: state.categorias.find(categoria => categoria.id === nomeCategoria) as ICategorias || {},
         produtos: state.produtos.filter(produto => produto.categoria === nomeCategoria && produto.titulo.match(regexp))

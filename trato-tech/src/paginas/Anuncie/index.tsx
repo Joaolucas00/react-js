@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import Header from "../../componentes/Header"
-import { AppDispatch, RootState } from "../../store"
+import { RootState } from "../../store"
 import styles from './Anuncie.module.scss'
 import Botao from "../../componentes/Botao"
 import { useForm } from "react-hook-form"
@@ -33,7 +33,7 @@ const Anuncie = () => {
 
     useEffect(() => {
         dispatch(nomeCategoria ? carregarUmaCategoria(nomeCategoria) : carregarCategorias())
-    }, [])
+    }, [dispatch, nomeCategoria])
 
 
     return (

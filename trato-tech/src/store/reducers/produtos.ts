@@ -28,15 +28,18 @@ const produtosSlice = createSlice({
       deletarProduto: (state, { payload }): void => {
         const index = state.findIndex(produto => produto.id === payload)
         state.splice(index, 1)
+      },
+      adicionarProduto: (state, { payload }) => {
+        state.push(...payload)
       }
-    },
+    },/*
     extraReducers: builder => {
       builder.addCase(getProdutos.fulfilled, (_, { payload }) => {    
         return payload
       })
-    }
+    }*/
 })
 
-export const { mudarFavorito, cadastrarProduto, mudarProduto, deletarProduto } = produtosSlice.actions
+export const { mudarFavorito, cadastrarProduto, mudarProduto, deletarProduto, adicionarProduto } = produtosSlice.actions
 
 export default produtosSlice.reducer;

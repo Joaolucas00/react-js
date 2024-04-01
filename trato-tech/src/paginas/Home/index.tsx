@@ -15,7 +15,6 @@ const Home = () => {
 
     useEffect(() => {
         dispatch(carregarCategorias())
-        dispatch(getProdutos())
     }, [dispatch])
 
     const navigate = useNavigate();
