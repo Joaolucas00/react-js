@@ -50,6 +50,8 @@ const criarTarefa = async ({ fork, action, get, dispatch, textoCarregando, texto
         isClosable: true
         });
     }
+
+    return response
 }
 
 export default criarTarefa
