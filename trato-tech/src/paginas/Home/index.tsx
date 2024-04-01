@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../store';
 import Botao from '../../componentes/Botao';
 import { useEffect } from 'react';
-import { getCategorias } from '../../store/reducers/categorias';
+import { carregarCategorias } from '../../store/reducers/categorias';
 import { getProdutos } from '../../store/reducers/produtos';
 
 const Home = () => {
@@ -14,7 +14,7 @@ const Home = () => {
     const dispatch = useDispatch<AppDispatch>()
 
     useEffect(() => {
-        dispatch(getCategorias())
+        dispatch(carregarCategorias())
         dispatch(getProdutos())
     }, [dispatch])
 
