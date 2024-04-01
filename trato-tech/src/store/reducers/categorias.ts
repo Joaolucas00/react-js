@@ -21,33 +21,7 @@ const categoriasSlice = createSlice({
       }
     },
     extraReducers: builder => {
-      builder.addCase(getCategorias.fulfilled, (_, { payload }) => {
-        toast({
-          title: 'Sucesso!',
-          description: 'Categorias carregadas com sucesso!',
-          status: 'success',
-          duration: 2000,
-          isClosable: true
-        })
-        return payload
-      })
-      .addCase(getCategorias.pending, () => {
-        toast({
-          title: 'Carregando',
-          description: 'Carregando categorias',
-          status: 'loading',
-          duration: 2000,
-          isClosable: true
-        })
-      })
-      .addCase(getCategorias.rejected, () => {
-        toast({title: 'Erro',
-        description: 'Erro na busca de categorias',
-        status: 'error',
-        duration: 2000,
-        isClosable: true
-        })
-      })
+      builder
       .addCase(resetarCarrinho.type, () => {
         toast({title: 'Sucesso!',
         description: 'Compra completada com sucesso!',
