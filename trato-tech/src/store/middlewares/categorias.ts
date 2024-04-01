@@ -1,9 +1,9 @@
 import { createListenerMiddleware } from "@reduxjs/toolkit";
-import { adicionarCategorias, carregarCategorias } from "../reducers/categorias";
+import { adicionarCategorias, carregarCategorias, carregarUmaCategoria } from "../reducers/categorias";
 import categoriasServices from "../../services/categorias";
 import { createStandaloneToast } from "@chakra-ui/toast";
 
-const { toast } = createStandaloneToast()
+const { toast } = createStandaloneToast();
 
 export const listener = createListenerMiddleware();
 
@@ -19,8 +19,7 @@ listener.startListening({
             isClosable: true
           });
 
-
-        const tarefa = fork(async api => {
+          const tarefa = fork(async api => {
             await api.delay(1000)
             return await categoriasServices.get();
         })
@@ -47,5 +46,14 @@ listener.startListening({
             isClosable: true
             });
         }
+    }
+
+});
+
+listener.startListening({
+    actionCreator: carregarUmaCategoria,
+    effect: async (action, {  }) => {
+        console.log('carregar apenas uma categoria');
+        
     }
 })

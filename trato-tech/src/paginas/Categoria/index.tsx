@@ -6,23 +6,21 @@ import { ICategorias } from "../../interfaces/ICategorias"
 import styles from './Categoria.module.scss'
 import Produto from "../../componentes/Produto"
 import Botao from "../../componentes/Botao"
-import { getCategorias } from "../../store/reducers/categorias"
-import { getProdutos } from "../../store/reducers/produtos"
 import { useEffect } from "react"
+import { carregarUmaCategoria } from "../../store/reducers/categorias"
 
 const Categoria = () => {
-    
     const dispatch = useDispatch<AppDispatch>()
-
-    useEffect(() => {
-        dispatch(getCategorias())
-        dispatch(getProdutos())
-    }, [dispatch])
-
-
-
     const navigate = useNavigate()
     const { nomeCategoria } = useParams()
+
+    console.log(nomeCategoria);
+
+    useEffect(() => {
+        dispatch(carregarUmaCategoria())
+    }, [dispatch, nomeCategoria])
+
+
     const { categoria, produtos } = useSelector((state: RootState) => { 
         const regexp = new RegExp(state.busca, 'i')
         return {

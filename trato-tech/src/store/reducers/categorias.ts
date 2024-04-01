@@ -4,20 +4,21 @@ import categoriasServices from '../../services/categorias';
 import { createStandaloneToast } from '@chakra-ui/toast';
 import { resetarCarrinho } from './carrinho';
 
-const { toast } = createStandaloneToast()
+const { toast } = createStandaloneToast();
 
 const initialState: ICategorias[] = [];
 
-export const carregarCategorias = createAction('categorias/carregarCategorias')
+export const carregarCategorias = createAction('categorias/carregarCategorias');
+export const carregarUmaCategoria = createAction('categorias/carregarUmaCategoria')
 
-export const getCategorias = createAsyncThunk('categorias/get', categoriasServices.get)
+export const getCategorias = createAsyncThunk('categorias/get', categoriasServices.get);
 
 const categoriasSlice = createSlice({
     name: 'categorias',
     initialState,
     reducers: {
       adicionarCategorias: (state, { payload }) => {
-        return payload
+        return payload;
       }
     },
     extraReducers: builder => {
