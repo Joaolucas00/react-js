@@ -32,7 +32,7 @@ const Anuncie = () => {
     }
 
     useEffect(() => {
-        dispatch(nomeCategoria ? carregarUmaCategoria(nomeCategoria as any) : carregarCategorias())
+        dispatch(nomeCategoria ? carregarUmaCategoria(nomeCategoria) : carregarCategorias())
     }, [])
 
 
