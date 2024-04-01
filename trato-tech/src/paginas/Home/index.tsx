@@ -7,7 +7,6 @@ import { AppDispatch, RootState } from '../../store';
 import Botao from '../../componentes/Botao';
 import { useEffect } from 'react';
 import { carregarCategorias } from '../../store/reducers/categorias';
-import { getProdutos } from '../../store/reducers/produtos';
 
 const Home = () => {
 

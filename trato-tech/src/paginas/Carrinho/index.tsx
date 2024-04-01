@@ -34,7 +34,7 @@ const Carrinho = () => {
         <div>
             <Header titulo="Carrinho de Compras" descricao="Confira produtos que você adicionou ao carrinho"/>
             <div className={styles.carrinho}>
-                {carrinho.map(produtoNocarrinho => <Produto carrinho produto={produtos.find((produto) => produto.id === produtoNocarrinho.id) as IProdutos}/>)}
+                {carrinho.map(produtoNocarrinho => <Produto key={produtoNocarrinho.id} carrinho produto={produtos.find((produto) => produto.id === produtoNocarrinho.id) as IProdutos}/>)}
                 <div className={styles.total}>
                     <strong>resumo da compra</strong>
                     <span>Subtotal: <strong> R$ {total.toFixed(2)}</strong></span>
