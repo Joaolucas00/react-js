@@ -16,7 +16,7 @@ const Categoria = () => {
     const { nomeCategoria } = useParams()
 
     useEffect(() => {
-        dispatch(carregarUmaCategoria(nomeCategoria as any))
+        dispatch(carregarUmaCategoria(nomeCategoria))
     }, [dispatch, nomeCategoria])
 
 

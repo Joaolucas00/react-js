@@ -1,11 +1,13 @@
 import { useDispatch, useSelector } from "react-redux"
 import Header from "../../componentes/Header"
-import { RootState } from "../../store"
+import { AppDispatch, RootState } from "../../store"
 import styles from './Anuncie.module.scss'
 import Botao from "../../componentes/Botao"
 import { useForm } from "react-hook-form"
 import { cadastrarProduto } from "../../store/reducers/produtos"
 import { useParams } from "react-router-dom"
+import { useEffect } from "react"
+import { carregarCategorias, carregarUmaCategoria } from "../../store/reducers/categorias"
 
 const Anuncie = () => {
 
@@ -28,6 +30,11 @@ const Anuncie = () => {
         console.log(data);
         dispatch(cadastrarProduto(data))
     }
+
+    useEffect(() => {
+        dispatch(nomeCategoria ? carregarUmaCategoria(nomeCategoria as any) : carregarCategorias())
+    }, [])
+
 
     return (
         <div className={styles.container}>

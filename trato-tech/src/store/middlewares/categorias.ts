@@ -59,12 +59,13 @@ listener.startListening({
 
 listener.startListening({
     actionCreator: carregarUmaCategoria,
-    effect: async (action, { fork, dispatch, getState }) => {
+    effect: async (action, { fork, dispatch, getState, unsubscribe }) => {
         const { categorias } = getState() as RootState;
         const nomeCategoria = action.payload
         const categoriaCarregada = categorias.some((categoria: ICategorias) => categoria.id === nomeCategoria)
         
         if (categoriaCarregada) return;
+        if(categorias.length === 5) unsubscribe();
 
         await criarTarefa({fork, dispatch, get: () => categoriasServices.getUmaCategoria(nomeCategoria), action: adicionarUmaCategoria, textoCarregando: `Carregando categoria ${nomeCategoria}`, textoSucesso: `Categoria ${nomeCategoria} carregada com sucesso`, textoErro: `Erro na busca da categoria ${nomeCategoria}`})
     }

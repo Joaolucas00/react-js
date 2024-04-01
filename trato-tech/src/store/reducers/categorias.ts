@@ -10,7 +10,7 @@ const initialState: ICategorias[] = [];
 
 export const carregarCategorias = createAction('categorias/carregarCategorias');
 
-export const carregarUmaCategoria = createAction('categorias/carregarUmaCategoria')
+export const carregarUmaCategoria = createAction<string | undefined>('categorias/carregarUmaCategoria')
 
 export const getCategorias = createAsyncThunk('categorias/get', categoriasServices.get);
 
