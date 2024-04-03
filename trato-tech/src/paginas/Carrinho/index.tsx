@@ -1,15 +1,17 @@
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 import { RootState } from "../../store"
 import styles from './Carrinho.module.scss'
 import Header from "../../componentes/Header"
 import { ICarrinho } from "../../interfaces/ICarrinho"
 import Produto from "../../componentes/Produto"
 import { IProdutos } from "../../interfaces/IProdutos"
-import { resetarCarrinho } from "../../store/reducers/carrinho"
+
+import { useNavigate } from "react-router-dom"
 
 const Carrinho = () => {
 
-    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
 
     const { carrinho, total }= useSelector((state: RootState) => {
         let total = 0;
@@ -40,7 +42,7 @@ const Carrinho = () => {
                     <span>Subtotal: <strong> R$ {total.toFixed(2)}</strong></span>
                 </div>
             </div>
-            <button className={styles.finalizar} onClick={() => dispatch(resetarCarrinho())}>
+            <button className={styles.finalizar} onClick={() => navigate('/pagamento')}>
                 Finalizar compra
             </button>
         </div>

@@ -5,6 +5,7 @@ import Categoria from "./paginas/Categoria"
 import NotFound from "./paginas/NotFound"
 import Carrinho from "./paginas/Carrinho"
 import Anuncie from "./paginas/Anuncie"
+import Pagamento from "./paginas/Pagamento"
 
 
 
@@ -18,6 +19,7 @@ function AppRoutes() {
           <Route path="carrinho" element={<Carrinho/>}/>
           <Route path="anuncie/:nomeCategoria" element={<Anuncie/>}/>
           <Route path="anuncie" element={<Anuncie/>}/>
+          <Route path="pagamento" element={<Pagamento/>}/>
         </Route>
         <Route path="*" element={<NotFound/>}/>
       </Routes>

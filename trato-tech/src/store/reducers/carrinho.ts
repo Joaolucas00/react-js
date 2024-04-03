@@ -1,7 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAction, createSlice } from "@reduxjs/toolkit";
 import { ICarrinho } from "../../interfaces/ICarrinho";
 
 const initialState: ICarrinho[] = []
+
+export const carregarPagamento = createAction('carrinho/carregarPagamento')
 
 const carrinhoSlice = createSlice({
     name: 'carrinho',

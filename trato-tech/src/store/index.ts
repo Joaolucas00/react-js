@@ -3,10 +3,11 @@ import categoriasSlice from "./reducers/categorias";
 import produtosSlice from "./reducers/produtos";
 import carrinhoSlice from "./reducers/carrinho";
 import buscaSlice from './reducers/busca';
-import { categoriasListener } from "./middlewares/categorias";
+//import { categoriasListener } from "./middlewares/categorias";
 import { produtosListener } from "./middlewares/produtos";
 import createSagaMiddleware from 'redux-saga'
 import { watcherCategorias } from "./sagas/categorias";
+import { watcherCarrinho } from "./sagas/carrinho";
 
 
 const sagaMiddleware = createSagaMiddleware()
@@ -26,6 +27,7 @@ const store = configureStore({
 });
 
 sagaMiddleware.run(watcherCategorias)
+sagaMiddleware.run(watcherCarrinho)
 
 export default store
 
