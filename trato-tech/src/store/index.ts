@@ -19,7 +19,7 @@ const store = configureStore({
         busca:  buscaSlice
     },
     middleware: getDefaultMiddleware => getDefaultMiddleware().prepend(
-        categoriasListener.middleware, 
+        //categoriasListener.middleware, 
         produtosListener.middleware,
         sagaMiddleware
         ),

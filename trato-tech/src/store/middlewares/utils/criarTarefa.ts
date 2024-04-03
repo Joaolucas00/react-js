@@ -1,5 +1,7 @@
 import { createStandaloneToast } from "@chakra-ui/toast";
 import { ForkedTaskAPI } from "@reduxjs/toolkit";
+import { ICategorias } from "../../../interfaces/ICategorias";
+import { IProdutos } from "../../../interfaces/IProdutos";
 
 
 const { toast } = createStandaloneToast();
@@ -7,7 +9,7 @@ const { toast } = createStandaloneToast();
 
 interface IparametrosTarefa {
     fork: any
-    get: (arg?: any) => Promise<any>
+    get: (arg?: any) => Promise<ICategorias[] | ICategorias | IProdutos[]>
     action: any
     dispatch: any
     textoCarregando: string
