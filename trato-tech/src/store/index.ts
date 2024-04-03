@@ -6,7 +6,7 @@ import buscaSlice from './reducers/busca';
 import { categoriasListener } from "./middlewares/categorias";
 import { produtosListener } from "./middlewares/produtos";
 import createSagaMiddleware from 'redux-saga'
-import { sagaCategorias } from "./sagas/categorias";
+import { watcherCategorias } from "./sagas/categorias";
 
 
 const sagaMiddleware = createSagaMiddleware()
@@ -25,7 +25,7 @@ const store = configureStore({
         ),
 });
 
-sagaMiddleware.run(sagaCategorias)
+sagaMiddleware.run(watcherCategorias)
 
 export default store
 
