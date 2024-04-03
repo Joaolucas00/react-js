@@ -5,6 +5,11 @@ import carrinhoSlice from "./reducers/carrinho";
 import buscaSlice from './reducers/busca';
 import { categoriasListener } from "./middlewares/categorias";
 import { produtosListener } from "./middlewares/produtos";
+import createSagaMiddleware from 'redux-saga'
+import { sagaCategorias } from "./sagas/categorias";
+
+
+const sagaMiddleware = createSagaMiddleware()
 
 const store = configureStore({
     reducer: {
@@ -15,9 +20,12 @@ const store = configureStore({
     },
     middleware: getDefaultMiddleware => getDefaultMiddleware().prepend(
         categoriasListener.middleware, 
-        produtosListener.middleware
+        produtosListener.middleware,
+        sagaMiddleware
         ),
 });
+
+sagaMiddleware.run(sagaCategorias)
 
 export default store
 

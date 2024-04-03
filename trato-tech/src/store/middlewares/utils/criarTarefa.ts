@@ -6,13 +6,13 @@ const { toast } = createStandaloneToast();
 
 
 interface IparametrosTarefa {
-    fork: any,
-    get: (arg?: any) => Promise<any>,
-    action: any,
+    fork: any
+    get: (arg?: any) => Promise<any>
+    action: any
     dispatch: any
-    textoCarregando: string,
-    textoSucesso: string,
-    textoErro: string,
+    textoCarregando: string
+    textoSucesso: string
+    textoErro: string
 }
 
 const criarTarefa = async ({ fork, action, get, dispatch, textoCarregando, textoErro, textoSucesso}: IparametrosTarefa) => {
