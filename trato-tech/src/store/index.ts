@@ -5,7 +5,7 @@ import carrinhoSlice from "./reducers/carrinho";
 import buscaSlice from './reducers/busca';
 //import { categoriasListener } from "./middlewares/categorias";
 import { produtosListener } from "./middlewares/produtos";
-import createSagaMiddleware from 'redux-saga'
+import createSagaMiddleware from 'redux-saga';
 import { watcherCategorias } from "./sagas/categorias";
 import { watcherCarrinho } from "./sagas/carrinho";
 
