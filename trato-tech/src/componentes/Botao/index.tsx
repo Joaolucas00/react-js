@@ -4,12 +4,13 @@ import styles from './Botao.module.scss'
 interface BotaoProps {
     children?: ReactNode,
     type?: any,
+    disabled?: any
     onClick?: () => void
 }
 
-const Botao = ({ children, type, onClick }: BotaoProps) => {
+const Botao = ({ children, type, onClick, disabled }: BotaoProps) => {
     return (
-        <button className={styles.button} type={type} onClick={onClick}>
+        <button disabled={disabled} className={styles.button} type={type} onClick={onClick}>
             {children}
         </button>
     )

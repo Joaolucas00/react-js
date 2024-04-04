@@ -1,5 +1,5 @@
 import { call, delay, put, select, takeEvery, takeLatest } from "redux-saga/effects";
-import { carregarPagamento, mudarCarrinho, mudarQuantidade, mudarTotal } from "../reducers/carrinho";
+import { carregarPagamento, finalizarPagamento, mudarCarrinho, mudarQuantidade, mudarTotal, resetarCarrinho } from "../reducers/carrinho";
 import usuariosServices from "../../services/usuarios";
 import cartoesServices from "../../services/cartoes";
 import bandeirasServices from "../../services/bandeiras";
@@ -7,6 +7,11 @@ import { adicionarUsuario } from "../reducers/usuario";
 import { RootState } from "..";
 import { ICarrinho } from "../../interfaces/ICarrinho";
 import { IProdutos } from "../../interfaces/IProdutos";
+import { createStandaloneToast } from "@chakra-ui/toast";
+
+
+
+const { toast } = createStandaloneToast();
 
 const usuarioLogado = 1
 
@@ -36,7 +41,31 @@ function* calcularTotal() {
     yield put(mudarTotal(total))
 }
 
+function* finalizarPagamentoSaga({ payload }: any): Generator {
+    const {valorTotal, formaDePagamento} = payload
+
+    if(valorTotal > formaDePagamento.saldo) {
+        return yield toast({
+            title: 'Erro',
+            description: 'Saldo insuficiente',
+            status: 'error',
+            duration: 2000,
+            isClosable: true
+        });
+    } else {
+        yield toast({
+            title: 'Sucesso!',
+            description: 'Compra realizada com sucesso!',
+            status: 'success',
+            duration: 2000,
+            isClosable: true
+          });
+        yield put(resetarCarrinho())
+    }
+}
+
 export function* watcherCarrinho(): Generator {
     yield takeLatest(carregarPagamento, workerCarrinho)
     yield takeEvery([mudarQuantidade, mudarCarrinho], calcularTotal)
+    yield takeLatest(finalizarPagamento, finalizarPagamentoSaga)
 }

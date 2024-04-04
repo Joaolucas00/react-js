@@ -4,7 +4,7 @@ import Header from '../../componentes/Header'
 import Select from '../../componentes/Select'
 import styles from './Pagamento.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
-import { carregarPagamento } from '../../store/reducers/carrinho'
+import { carregarPagamento, finalizarPagamento } from '../../store/reducers/carrinho'
 import { RootState } from '../../store'
 
 const Pagamento = () => {
@@ -28,6 +28,10 @@ const Pagamento = () => {
     
     const valorTotal = formaDePagamento === '-' ? total : total * formaDePagamento.taxa;
 
+    const finalizar = () => {
+        dispatch(finalizarPagamento({valorTotal, formaDePagamento}))
+    }
+
     return (
         <div className={styles.container}>
             <Header descricao='Faça sua compra e seja feliz!' titulo='Pagamento'/>
@@ -49,7 +53,7 @@ const Pagamento = () => {
                     <p>Total com taxas: R$ {valorTotal.toFixed(2)}</p>
                 </div>
                 <div className={styles.finalizar}>
-                    <Botao>Finalizar compra</Botao>
+                    <Botao disabled={valorTotal === 0 || formaDePagamento === '-'} onClick={finalizar}>Finalizar compra</Botao>
                 </div>
             </div>
         </div>

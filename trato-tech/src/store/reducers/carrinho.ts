@@ -6,9 +6,16 @@ interface IInitialState {
     total: number
 }
 
+interface IPagamento {
+    valorTotal: number;
+    formaDePagamento: any
+}
+
 const initialState: IInitialState = {data: [], total: 0}
 
 export const carregarPagamento = createAction('carrinho/carregarPagamento')
+
+export const finalizarPagamento = createAction<IPagamento>('finalizarPagamento/carregarPagamento')
 
 const carrinhoSlice = createSlice({
     name: 'carrinho',
