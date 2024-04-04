@@ -6,7 +6,7 @@ const usuarioSlice = createSlice({
     name: 'usuario',
     initialState,
     reducers: {
-        adicionarUsuario: (state, { payload }) => {
+        adicionarUsuario: (_, { payload }) => {
             return payload
         }
     }

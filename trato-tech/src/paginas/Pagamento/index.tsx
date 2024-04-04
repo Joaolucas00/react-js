@@ -8,6 +8,8 @@ import { carregarPagamento } from '../../store/reducers/carrinho'
 
 const Pagamento = () => {
 
+    
+    
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(carregarPagamento())

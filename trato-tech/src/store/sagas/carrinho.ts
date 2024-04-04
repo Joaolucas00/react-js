@@ -1,8 +1,12 @@
-import { call, takeLatest } from "redux-saga/effects";
-import { carregarPagamento } from "../reducers/carrinho";
+import { call, delay, put, select, takeEvery, takeLatest } from "redux-saga/effects";
+import { carregarPagamento, mudarCarrinho, mudarQuantidade, mudarTotal } from "../reducers/carrinho";
 import usuariosServices from "../../services/usuarios";
 import cartoesServices from "../../services/cartoes";
 import bandeirasServices from "../../services/bandeiras";
+import { adicionarUsuario } from "../reducers/usuario";
+import { RootState } from "..";
+import { ICarrinho } from "../../interfaces/ICarrinho";
+import { IProdutos } from "../../interfaces/IProdutos";
 
 const usuarioLogado = 1
 
@@ -16,14 +20,23 @@ function* workerCarrinho(): Generator {
             const bandeiraDoCartao = bandeiras.find((bandeira: any) => bandeira.id == cartao.bandeiraId);
             return {...cartao, taxa: bandeiraDoCartao.taxa, bandeira: bandeiraDoCartao.nome};
         })
-        console.log({ ...usuario, cartoes: cartoesComBandeiras});
-        
+        yield put(adicionarUsuario({ ...usuario, cartoes: cartoesComBandeiras}))
     } catch (error) {
         console.log(error);
     }
-    
+}
+
+function* calcularTotal() {
+    yield delay(500)
+    const state: RootState = yield select()
+    const total: any = state.carrinho.data.reduce((total: number, itemNoCarrinho) => {
+        const item = state.produtos.find(item => item.id === itemNoCarrinho.id) as IProdutos
+        return total + item.preco * itemNoCarrinho.quantidade
+    }, 0)
+    yield put(mudarTotal(total))
 }
 
 export function* watcherCarrinho(): Generator {
     yield takeLatest(carregarPagamento, workerCarrinho)
+    yield takeEvery([mudarQuantidade, mudarCarrinho], calcularTotal)
 }

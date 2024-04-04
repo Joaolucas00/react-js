@@ -31,11 +31,11 @@ const Produto = ({ produto, carrinho }: ProdutoProps) => {
     const [modoDeEdicao, setModoDeEdicao] = useState(false)
     const [novoTitulo, setNovoTitulo] = useState(produto.titulo)
 
-    const estaNoCarrinho = useSelector((state: RootState) => state.carrinho.some(produtoNoCarrinho => produtoNoCarrinho.id === produto.id))
+    const estaNoCarrinho = useSelector((state: RootState) => state.carrinho.data?.some(produtoNoCarrinho => produtoNoCarrinho.id === produto.id))
 
     const noCarrinho = useSelector((state: RootState) => state.carrinho)
 
-    const carrinhoAtual = noCarrinho.find(car => car.id === produto.id) as ICarrinho
+    const carrinhoAtual = noCarrinho.data.find(car => car.id === produto.id) as ICarrinho
 
     const dispatch = useDispatch()
 
