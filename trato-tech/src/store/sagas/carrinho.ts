@@ -5,7 +5,6 @@ import cartoesServices from "../../services/cartoes";
 import bandeirasServices from "../../services/bandeiras";
 import { adicionarUsuario } from "../reducers/usuario";
 import { RootState } from "..";
-import { ICarrinho } from "../../interfaces/ICarrinho";
 import { IProdutos } from "../../interfaces/IProdutos";
 import { createStandaloneToast } from "@chakra-ui/toast";
 
