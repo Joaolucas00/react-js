@@ -3,6 +3,7 @@ import categoriasSlice from "./reducers/categorias";
 import produtosSlice from "./reducers/produtos";
 import carrinhoSlice from "./reducers/carrinho";
 import buscaSlice from './reducers/busca';
+import usuarioSlice from './reducers/usuario'
 //import { categoriasListener } from "./middlewares/categorias";
 import { produtosListener } from "./middlewares/produtos";
 import createSagaMiddleware from 'redux-saga';
@@ -17,7 +18,8 @@ const store = configureStore({
         categorias: categoriasSlice,
         produtos: produtosSlice,
         carrinho: carrinhoSlice,
-        busca:  buscaSlice
+        busca:  buscaSlice,
+        usuario: usuarioSlice
     },
     middleware: getDefaultMiddleware => getDefaultMiddleware().prepend(
         //categoriasListener.middleware, 
