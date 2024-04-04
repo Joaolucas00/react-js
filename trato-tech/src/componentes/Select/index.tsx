@@ -3,7 +3,7 @@ import styles from './Select.module.scss';
 
 interface PropsSelect {
     value?: string;
-    onChange?: () => void;
+    onChange?: (e: any) => void | any;
     children?: ReactNode;
 }
 

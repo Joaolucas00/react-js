@@ -1,5 +1,5 @@
 import { call, delay, put, takeLatest } from "redux-saga/effects";
-import { adicionarCategorias, carregarCategorias } from "../reducers/categorias";
+import { adicionarCategorias, carregarCategorias, carregarUmaCategoria } from "../reducers/categorias";
 import { createStandaloneToast } from "@chakra-ui/toast";
 import categoriasServices from "../../services/categorias";
 import { ICategorias } from "../../interfaces/ICategorias";
@@ -38,6 +38,6 @@ function* workerCategorias(): Generator<any, void, ICategorias[]> {
 }
 
 export function* watcherCategorias(): Generator {
-    const tarefa: any = yield takeLatest(carregarCategorias, workerCategorias);
+    const tarefa: any = yield takeLatest([carregarCategorias, carregarUmaCategoria], workerCategorias);
     yield takeLatest(adicionarCategorias, () => tarefa.cancel());
 }

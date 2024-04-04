@@ -1,12 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {}
+interface IInitialState {
+    nome?: string,
+    id?: string,
+    cartoes?: any
+}
+
+const initialState: IInitialState = {}
 
 const usuarioSlice = createSlice({
     name: 'usuario',
     initialState,
     reducers: {
-        adicionarUsuario: (_, { payload }) => {
+        adicionarUsuario: (_, { payload }) => {            
             return payload
         }
     }
