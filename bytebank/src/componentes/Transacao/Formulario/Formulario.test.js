@@ -3,7 +3,7 @@ import  userEvent from '@testing-library/user-event'
 import Formulario from '.'
 
 describe('Deve redenrizar um campo de input', () => {
-
+    
     test('no documento', () => {
         render(<Formulario/>)
         const inputText = screen.getByPlaceholderText('Digite um valor')
@@ -36,9 +36,9 @@ test('Deve chamar um evento de onSubmit ao clicar em realizar transação', () =
 test('Deve ser possível selecionar uma opção do elemento select', () => {
     render(<Formulario/>)
     const select = screen.getByRole('combobox')
-    const optionTransacao = screen.getByRole('option', {name: 'Selecione um tipo de transação'})
+    const optionPadrao = screen.getByRole('option', {name: 'Selecione um tipo de transação'})
     const optionDeposito = screen.getByRole('option', {name: 'Depósito'})
     userEvent.selectOptions(select, ['Depósito'])
-    expect(optionTransacao.selected).toBe(false)
+    expect(optionPadrao.selected).toBe(false)
     expect(optionDeposito.selected).toBe(true)
 })
