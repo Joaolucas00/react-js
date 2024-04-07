@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import  userEvent from '@testing-library/user-event'
 import Formulario from '.'
 
-describe('Deve redenrizar um campo de input', () => {
+describe('Deve renderizar um campo de input', () => {
     
     test('no documento', () => {
         render(<Formulario/>)

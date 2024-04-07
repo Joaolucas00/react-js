@@ -1,7 +1,7 @@
 import { render, screen} from '@testing-library/react'
 import Extrato from '.'
 
-test('Deve redenrizar um lista de transações', () => {
+test('Deve renderizar um lista de transações', () => {
     const transacoes = [
         {
             transacao: 'Depósito',
