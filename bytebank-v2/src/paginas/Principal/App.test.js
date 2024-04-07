@@ -31,5 +31,17 @@ describe('Componente <App/>', () => {
 
         const tituloPaginaCartoes = await screen.findByText('Meus cartões');
         expect(tituloPaginaCartoes).toBeInTheDocument();
+    });
+
+    test('Deve navegar até a página de investimentos', async () => {
+        render(<AppRoutes/>, {wrapper: BrowserRouter})
+        const linkInvestimentos = screen.getByText('Investimentos')
+        expect(linkInvestimentos).toBeInTheDocument()
+
+        userEvent.click(linkInvestimentos)
+
+        const titulo = await screen.findByText('Renda Fixa')
+        
+        expect(titulo).toBeInTheDocument()
     })
 })
