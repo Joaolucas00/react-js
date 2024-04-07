@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react';
 import App from './paginas/Principal/App';
 import { BrowserRouter, MemoryRouter, Routes, Route } from 'react-router-dom';
 import Cartoes from './componentes/Cartoes';
+import AppRoutes from './routes';
 
 describe('Rotas da aplicação', () => {
     test('Deve renderizar a rota principal', () => {
@@ -35,5 +36,13 @@ describe('Rotas da aplicação', () => {
         expect(localizacaoAtual).toHaveTextContent(rota)
     });
 
-    test('Deve rende')
+    test('Deve renderizar a página 404', () => {
+        const rota = '/pagina_nao_existente';
+        render(<MemoryRouter initialEntries={[rota]}>
+            <AppRoutes/>
+        </MemoryRouter>)
+
+        const paginaErro = screen.getByTestId('pagina-404')
+        expect(paginaErro).toContainHTML('<h1>Ops! Não encontramos a página</h1>')
+    })
 })
