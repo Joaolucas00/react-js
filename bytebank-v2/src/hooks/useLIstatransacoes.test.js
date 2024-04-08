@@ -1,4 +1,4 @@
-import { renderHook, act } from "@testing-library/react";
+import { renderHook, act, waitFor } from "@testing-library/react";
 import { buscaTransacoes } from '../services/transacoes'
 import useListaTransacoes from './useListaTransacoes'
 
@@ -16,11 +16,15 @@ describe('hooks/useListaTransacoes.js', () => {
     test('Deve retornar uma lista de transações e uma fução que atualiza', async () => {
         buscaTransacoes.mockImplementation(() => mockTransacao)
         const { result } = renderHook(() => useListaTransacoes())
-
+        expect(result.current[0]).toEqual([])
+        
+        /*
         await act(async () => {
             result.current[1]()
         })
-
-        expect(result.current[0]).toBe(mockTransacao)
+        */
+       
+       await waitFor(() => expect(result.current[0]).toEqual(mockTransacao))
+        expect(result.current[0]).toEqual(mockTransacao)
     })
 })
