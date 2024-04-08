@@ -4,6 +4,7 @@ import App from './App'
 import { BrowserRouter } from 'react-router-dom'
 import AppRoutes from '../../routes'
 
+// testes de integrações com outros componentes
 describe('Componente <App/>', () => {
     test('Deve permitir adicionar uma transação em extrato', () => {
         render(<App/>, {wrapper: BrowserRouter});

@@ -24,6 +24,7 @@ describe('Rotas da aplicação', () => {
         expect(meusCartoes).toHaveTextContent('Meus cartões');
     })
 
+    // testando o useLocation
     test('Deve renderizar a localização da rota atual', () => {
         const rota = '/';
         render(<MemoryRouter initialEntries={[rota]}>
