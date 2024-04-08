@@ -41,9 +41,30 @@
       "valor": "22",
       "data": "07/04/2024",
       "mes": "Abril"
+    },
+    {
+      "id": "6836",
+      "transacao": "Depósito",
+      "valor": "18",
+      "data": "08/04/2024",
+      "mes": "Abril"
+    },
+    {
+      "id": "a173",
+      "transacao": "Depósito",
+      "valor": "14",
+      "data": "08/04/2024",
+      "mes": "Abril"
+    },
+    {
+      "id": "c531",
+      "transacao": "Depósito",
+      "valor": "16",
+      "data": "08/04/2024",
+      "mes": "Abril"
     }
   ],
   "saldo": {
-    "valor": 1953
+    "valor": 2001
   }
 }

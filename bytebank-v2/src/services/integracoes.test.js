@@ -1,7 +1,14 @@
 import api from './api'
+import { atualizaSaldo, buscaSaldo } from './saldo'
 import { buscaTransacoes, salvaTransacao } from './transacoes'
 
 jest.mock('./api')
+
+const mockSaldo = { valor: 1111 }
+
+const mockRequisicaoPut = () => {
+    return new Promise((resolve) => { resolve({ status: 200}) })
+}
 
 const mockTransacao = [{
     id: 1,
@@ -18,6 +25,12 @@ const mockRequisicao = (retorno) => {
                 data: retorno
             })
         }, 200)
+    })
+}
+
+const mockRequisicaoSaldo = (retorno) => {
+    return new Promise((resolve) => {
+        setTimeout(() => { resolve({data: retorno}) }, 200)
     })
 }
 
@@ -58,5 +71,17 @@ describe('Requisições para API', () => {
         expect(status).toBe(201)
         expect(api.post).toHaveBeenCalledWith('/transacoes', mockTransacao[0])
     })
-    
+
+    test('Deve retornar o saldo', async () => {
+        api.get.mockImplementation(() => mockRequisicaoSaldo(mockSaldo))
+        const valor = await buscaSaldo()
+        expect(valor).toEqual(mockSaldo.valor)
+        expect(api.get).toHaveBeenCalledWith('/saldo')
+    })
+  
+    test('Deve realizar uma requisição PUT na URL /saldo', async () => {
+        api.put.mockImplementation(() => mockRequisicaoPut())
+        await atualizaSaldo(100)
+        expect(api.put).toHaveBeenCalledWith('/saldo', {valor: 100})
+    })
 })
