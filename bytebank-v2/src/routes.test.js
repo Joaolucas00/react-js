@@ -34,6 +34,15 @@ describe('Rotas da aplicação', () => {
         expect(localizacaoAtual).toHaveTextContent(rota);
     });
 
+    test('Deve renderizar rotas serviços', () => {
+        const rota = '/servicos'
+        render(<MemoryRouter initialEntries={[rota]}>
+            <AppRoutes/>
+        </MemoryRouter>)
+        const texto = screen.getByText('Empréstimo')
+        expect(texto).toBeInTheDocument()
+    })
+
     test('Deve renderizar a página 404', () => {
         const rota = '/pagina_nao_existente';
         render(<MemoryRouter initialEntries={[rota]}>
