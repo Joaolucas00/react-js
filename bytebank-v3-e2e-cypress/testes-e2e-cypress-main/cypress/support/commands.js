@@ -2,7 +2,9 @@ Cypress.Commands.add('getByData', (dataTest) => {
     return cy.get(`[data-test=${dataTest}]`)
 })
 
-
+Cypress.Commands.add('verificaTexto', (seletor, texto) => {
+    cy.get(`${seletor}`).contains(`${texto}`)
+})
 
 
 
