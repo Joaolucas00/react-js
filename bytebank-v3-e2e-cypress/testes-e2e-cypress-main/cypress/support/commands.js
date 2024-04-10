@@ -6,6 +6,13 @@ Cypress.Commands.add('verificaTexto', (seletor, texto) => {
     cy.get(`${seletor}`).contains(`${texto}`)
 })
 
+Cypress.Commands.add('fazerLogin', () => {
+    cy.getByData('botao-login').click()
+    cy.getByData('email-input').type('Jaolucas@emailqualquer.com')
+    cy.getByData('senha-input').type('Jãolucas1234')
+    cy.getByData('botao-enviar').click()
+
+})
 
 
 
