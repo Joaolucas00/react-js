@@ -20,7 +20,9 @@
     "api": "json-server --watch db.json --port 8080",
     "format": "prettier --write \"src/**/*{.js,.jsx}\"",
     "lint": "eslint \"src/**/*{.js,.jsx}\" --quiet",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+
+    "e2e:edge": "cypress run --browser edge"
   },
   "jest": {
     "coverageThreshold": {
