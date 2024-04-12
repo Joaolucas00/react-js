@@ -28,6 +28,7 @@ describe('testando a API', () => {
     })
 
     context('Interceptando solicitações de rede', () => {
+        
         it('Deve fazer a interceptação do POST users/login', () => {
             cy.intercept('POST', 'users/login').as('loginRequest')
             cy.fazerLogin()
