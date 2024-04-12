@@ -3,6 +3,7 @@ Cypress.Commands.add('getByData', (seletor) => {
 })
 
 Cypress.Commands.add('fazerLogin', () => {
+  cy.visit('/')
   cy.getByData('botao-login').click()
   cy.getByData('email-input').type('Jaolucas@emailqualquer.com')
   cy.getByData('senha-input').type('Jãolucas1234')
