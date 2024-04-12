@@ -59,6 +59,30 @@
         }
       ],
       "saldo": 3500
+    },
+    {
+      "id": "a36fe5ce-2381-42ca-9275-c54fd50e7af5",
+      "nome": "João Lucas",
+      "email": "aaa@aaa",
+      "senha": "1234",
+      "transacoes": [],
+      "saldo": 0
+    },
+    {
+      "id": "479259b4-7a67-4466-9926-324340f0f2c9",
+      "nome": "João Lucas",
+      "email": "aaa@aaa.com",
+      "senha": "12345",
+      "transacoes": [],
+      "saldo": 0
+    },
+    {
+      "id": "7fe61840-9265-48bf-87e5-7143c69220f8",
+      "nome": "Joaoo",
+      "email": "Jaolucas@emailqualquer.com",
+      "senha": "Jãolucas1234",
+      "transacoes": [],
+      "saldo": 0
     }
   ]
 }
