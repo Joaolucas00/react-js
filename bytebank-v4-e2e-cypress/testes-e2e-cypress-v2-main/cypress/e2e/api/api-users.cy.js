@@ -85,4 +85,19 @@ describe('testando a API', () => {
 
     })
 
+    context('Realizando login via API', () => {
+        it('Deve permitir o login do usuário João', () => {
+            cy.request({
+                method: 'POST',
+                url: 'http://localhost:8000/users/login',
+                body: Cypress.env()
+            }).then((res) => {
+                expect(res.status).to.eq(200)
+                expect(res.body).is.not.empty
+                expect(res.body.user).to.have.property('nome')
+                expect(res.body.user.nome).to.be.equal('João Lucas Dorneles')
+            })
+        })
+    })
+
 })
