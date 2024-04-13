@@ -88,9 +88,9 @@
     },
     {
       "id": "c691fd15-dcd5-4f24-89da-cdfa3cef9d67",
-      "nome": "Vinicius Neves",
+      "nome": "Mr. Ed Morissette III",
       "email": "vinny@alura.com",
-      "senha": "789456",
+      "senha": "ZlQmSswqeLaEGIK",
       "transacoes": [
         {
           "id": "b0411964-c8d4-4742-ad6d-15bb35b71b97",
@@ -130,6 +130,30 @@
       "nome": "Joaoo",
       "email": "Jaolucas@emailqualquer.com",
       "senha": "Jãolucas1234",
+      "transacoes": [],
+      "saldo": 0
+    },
+    {
+      "id": "7152f8f0-d291-474e-bb49-2c1bb17df00e",
+      "nome": "Bridget Hermiston",
+      "email": "Felix7@yahoo.com",
+      "senha": "WH0UpkzNvkK5ipl",
+      "transacoes": [],
+      "saldo": 0
+    },
+    {
+      "id": "da536a7f-2070-4f9d-be7f-2cec380e6d3b",
+      "nome": "Conrad Brekke",
+      "email": "Cali17@hotmail.com",
+      "senha": "MrJMrGRryeJjwu8",
+      "transacoes": [],
+      "saldo": 0
+    },
+    {
+      "id": "73a3384e-a05d-49ce-896f-01bb64740d44",
+      "nome": "rtgasdas",
+      "email": "awdsa@asdaw",
+      "senha": "dawdwa",
       "transacoes": [],
       "saldo": 0
     }
