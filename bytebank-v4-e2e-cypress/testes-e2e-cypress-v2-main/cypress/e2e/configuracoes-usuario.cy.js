@@ -20,7 +20,7 @@ describe('Atualização de dados do usuário', () => {
             cy.get('[name="senha"]').type(novosDadosUsuarios.senha)
             cy.getByData('botao-salvar-alteracoes').should('not.be.disabled')
             cy.getByData('botao-salvar-alteracoes').click()
-            cy.on('window:alert', (textoAlert) => {
+            cy.on('window:alert', (textoAlert) => { 
                 expect(textoAlert).to.equal('Alterações salvas com sucesso!')
             })
             cy.url().should('include', '/home')

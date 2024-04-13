@@ -82,15 +82,64 @@
           "valor": "80",
           "data": "12/04/2024",
           "mes": "Abril"
+        },
+        {
+          "id": "570967d6-8298-402a-884a-ea6da50e1cef",
+          "tipoTransacao": "Depósito",
+          "valor": "100",
+          "data": "13/04/2024",
+          "mes": "Abril"
+        },
+        {
+          "id": "e2b5f2ab-9896-46b2-b1bd-2947ec27e5ef",
+          "tipoTransacao": "Depósito",
+          "valor": "100",
+          "data": "13/04/2024",
+          "mes": "Abril"
+        },
+        {
+          "id": "90a218df-acdf-4c07-89f4-c5841b54fc35",
+          "tipoTransacao": "Depósito",
+          "valor": "100",
+          "data": "13/04/2024",
+          "mes": "Abril"
+        },
+        {
+          "id": "f0fead5c-c22f-4ed4-973a-339a47d10e3f",
+          "tipoTransacao": "Depósito",
+          "valor": "100",
+          "data": "13/04/2024",
+          "mes": "Abril"
+        },
+        {
+          "id": "b4eb6688-a780-4f93-8d57-aa1f4efb8d98",
+          "tipoTransacao": "Depósito",
+          "valor": "100",
+          "data": "13/04/2024",
+          "mes": "Abril"
+        },
+        {
+          "id": "bed0c193-39aa-481c-864b-cd4fb1365b27",
+          "tipoTransacao": "Depósito",
+          "valor": "100",
+          "data": "13/04/2024",
+          "mes": "Abril"
+        },
+        {
+          "id": "bb92fa06-8415-4b30-b798-a7f44fc9efe9",
+          "tipoTransacao": "Depósito",
+          "valor": "100",
+          "data": "13/04/2024",
+          "mes": "Abril"
         }
       ],
-      "saldo": 920
+      "saldo": 1620
     },
     {
       "id": "c691fd15-dcd5-4f24-89da-cdfa3cef9d67",
-      "nome": "Mr. Ed Morissette III",
+      "nome": "Mario McKenzie",
       "email": "vinny@alura.com",
-      "senha": "ZlQmSswqeLaEGIK",
+      "senha": "b2Y5Nc3kcOJNwqf",
       "transacoes": [
         {
           "id": "b0411964-c8d4-4742-ad6d-15bb35b71b97",
