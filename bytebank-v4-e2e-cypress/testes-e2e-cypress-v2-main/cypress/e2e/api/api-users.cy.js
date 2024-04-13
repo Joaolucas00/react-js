@@ -46,4 +46,43 @@ describe('testando a API', () => {
         })
     })
 
+    context('Testando método PUT da API Usuários', () => {
+
+        it('Atualiza informações do usuário com sucesso', () => {
+            const usuario = {
+                nome: 'João Lucas Dorneles',
+                senha: '1234567'
+            }
+
+            cy.request({
+                method: 'PUT',
+                url: 'http://localhost:8000/users/479259b4-7a67-4466-9926-324340f0f2c9',
+                body: usuario,
+                failOnStatusCode: false
+            }).then((response) => {
+                expect(response.status).to.eq(200)
+                expect(response.body.nome).to.eq(usuario.nome)
+                expect(response.body.senha).to.eq(usuario.senha)
+            })
+        })
+
+        it('Retorna erro 404 para usuário inexistente', () => {
+            const usuario = {
+                nome: 'Nome Inválido',
+                senha: '12324'
+            }
+
+            cy.request({
+                method: 'PUT',
+                url: 'http://localhost:8000/users/usuario_inexistente',
+                body: usuario,
+                failOnStatusCode: false
+            }).then((response) => {
+                expect(response.status).to.eq(404)
+                expect(response.body).to.eq('Not Found')
+            })
+        })
+
+    })
+
 })
