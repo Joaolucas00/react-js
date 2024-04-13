@@ -1,5 +1,7 @@
 describe('Testando dispositivos móveis', () => {
-  it('Deve existir um botão menu burguer', () => {
+
+
+  it('Deve existir um botão menu burguer', {viewportWidth: 375, viewportHeight: 667}, () => {
     cy.visit('/');
 
     cy.getByData('botao-login').click();
