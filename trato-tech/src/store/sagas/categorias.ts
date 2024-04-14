@@ -1,4 +1,4 @@
-import { call, delay, put, takeLatest } from "redux-saga/effects";
+import { CallEffect, PutEffect, call, delay, put, takeLatest } from "redux-saga/effects";
 import { adicionarCategorias, carregarCategorias, carregarUmaCategoria } from "../reducers/categorias";
 import { createStandaloneToast } from "@chakra-ui/toast";
 import categoriasServices from "../../services/categorias";
@@ -7,7 +7,7 @@ import { ICategorias } from "../../interfaces/ICategorias";
 
 const { toast } = createStandaloneToast();
 
-function* workerCategorias(): Generator<any, void, ICategorias[]> {
+function* workerCategorias(): Generator<CallEffect | PutEffect, void, ICategorias[]> {
     toast({
         title: 'Carregando',
         description: 'Carregando categorias',
@@ -37,7 +37,11 @@ function* workerCategorias(): Generator<any, void, ICategorias[]> {
     }
 }
 
-export function* watcherCategorias(): Generator {
-    const tarefa: any = yield takeLatest([carregarCategorias, carregarUmaCategoria], workerCategorias);
+interface TakeLatestType { // não é o tipo real de tarefa
+  cancel: () => void
+}
+
+export function* watcherCategorias(): Generator<unknown, void, TakeLatestType> {
+    const tarefa = yield takeLatest([carregarCategorias, carregarUmaCategoria], workerCategorias);
     yield takeLatest(adicionarCategorias, () => tarefa.cancel());
 }

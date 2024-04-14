@@ -8,7 +8,7 @@ interface IInitialState {
 
 interface IPagamento {
     valorTotal: number;
-    formaDePagamento: any
+    formaDePagamento: unknown
 }
 
 const initialState: IInitialState = {data: [], total: 0}
@@ -21,7 +21,7 @@ const carrinhoSlice = createSlice({
     name: 'carrinho',
     initialState,
     reducers: {
-        mudarCarrinho: (state, { payload }): any => {
+        mudarCarrinho: (state, { payload }): IInitialState => {
             const temProduto = state.data.some(produto => produto.id === payload)
             if(!temProduto) return {total: state.total, data: [...state.data, {id: payload, quantidade: 1}]};
             return {

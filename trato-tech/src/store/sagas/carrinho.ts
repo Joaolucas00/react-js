@@ -1,4 +1,4 @@
-import { call, delay, put, select, takeEvery, takeLatest } from "redux-saga/effects";
+import { CallEffect, PutEffect, call, delay, put, select, takeEvery, takeLatest } from "redux-saga/effects";
 import { carregarPagamento, finalizarPagamento, mudarCarrinho, mudarQuantidade, mudarTotal, resetarCarrinho } from "../reducers/carrinho";
 import usuariosServices from "../../services/usuarios";
 import cartoesServices from "../../services/cartoes";
@@ -14,14 +14,14 @@ const { toast } = createStandaloneToast();
 
 const usuarioLogado = 1
 
-function* workerCarrinho(): Generator {
+function* workerCarrinho(): Generator<CallEffect | PutEffect, void, any[]> {
     try {
-        const usuario: any = yield call(usuariosServices.getByID, usuarioLogado);
-        const cartoesDoUsuario: any = yield call(cartoesServices.getByIdUsuarios, usuarioLogado);
-        const bandeiraIds = cartoesDoUsuario.map((cartao: any) => cartao.bandeiraId);
-        const bandeiras: any = yield call(bandeirasServices.get, bandeiraIds);
-        const cartoesComBandeiras = cartoesDoUsuario.map((cartao: any) => { 
-            const bandeiraDoCartao = bandeiras.find((bandeira: any) => bandeira.id == cartao.bandeiraId);
+        const usuario = yield call(usuariosServices.getByID, usuarioLogado);
+        const cartoesDoUsuario = yield call(cartoesServices.getByIdUsuarios, usuarioLogado);
+        const bandeiraIds = cartoesDoUsuario.map((cartao) => cartao.bandeiraId);
+        const bandeiras = yield call(bandeirasServices.get, bandeiraIds);
+        const cartoesComBandeiras = cartoesDoUsuario.map((cartao) => { 
+            const bandeiraDoCartao = bandeiras.find((bandeira) => bandeira.id == cartao.bandeiraId);
             return {...cartao, taxa: bandeiraDoCartao.taxa, bandeira: bandeiraDoCartao.nome};
         })
         yield put(adicionarUsuario({ ...usuario, cartoes: cartoesComBandeiras}))
@@ -33,16 +33,18 @@ function* workerCarrinho(): Generator {
 function* calcularTotal() {
     yield delay(500)
     const state: RootState = yield select()
-    const total: any = state.carrinho.data.reduce((total: number, itemNoCarrinho) => {
+    const total: number = state.carrinho.data.reduce((total: number, itemNoCarrinho) => {
         const item = state.produtos.find(item => item.id === itemNoCarrinho.id) as IProdutos
         return total + item.preco * itemNoCarrinho.quantidade
     }, 0)
     yield put(mudarTotal(total))
 }
 
-function* finalizarPagamentoSaga({ payload }: any): Generator {
-    const {valorTotal, formaDePagamento} = payload
 
+function* finalizarPagamentoSaga({ payload }): Generator {
+    const {valorTotal, formaDePagamento} = payload
+    console.log('PAYLOAD', payload);
+    
     if(valorTotal > formaDePagamento.saldo) {
         return yield toast({
             title: 'Erro',
