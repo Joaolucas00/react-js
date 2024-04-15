@@ -1,9 +1,9 @@
-import Home from '.'
+import Categoria from "./index";
 import { render } from "@testing-library/react"
 
 
 describe('Teste teste', () => {
-    test('TEsteetee', () => {
-        render(<Home/>)
+    it('TEsteetee', () => {
+        render(<Categoria/>)
     })
 })
