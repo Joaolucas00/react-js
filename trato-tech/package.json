@@ -76,6 +76,9 @@
     "testEnvironment": "jest-environment-jsdom",
     "setupFilesAfterEnv": [
       "<rootDir>/setup-tests.js"
-    ]
+    ],
+    "moduleNameMapper": {
+      "axios": "axios/dist/axios.min.js"
+    }
   }
 }
