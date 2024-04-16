@@ -1,9 +1,7 @@
-import { Provider } from "react-redux"
 import Home from "./index.tsx"
-import { render, screen } from "@testing-library/react"
-import store from "../../store/index.ts"
-import { BrowserRouter } from "react-router-dom"
+import { screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { render } from "../../common/config/test-utils.js"
 
 /*
 function setup(jsx: any) {
@@ -12,18 +10,18 @@ function setup(jsx: any) {
       ...render(jsx),
     }
   }
-  */
+*/
 
 
-describe('Teste teste', async () => {
+describe('Teste teste', () => {
     it('TEsteetee', () => {
-        render(<Provider store={store}><BrowserRouter><Home/></BrowserRouter></Provider>)
+        render(<Home/>)
         const categoriaTitulo = screen.getByText('Categorias')
         expect(categoriaTitulo).toBeInTheDocument()
     })
 
     test('UserEvent test', async () => {
-        render(<Provider store={store}><BrowserRouter><Home/></BrowserRouter></Provider>)
+        render(<Home/>)
         const input = screen.getByPlaceholderText('inputText')
         await userEvent.type(input, 'Olá, Mundo!')
         expect(input).toHaveAttribute('value', 'Olá, Mundo!')
