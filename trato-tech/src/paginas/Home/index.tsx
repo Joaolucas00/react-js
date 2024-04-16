@@ -5,12 +5,12 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../store';
 import Botao from '../../componentes/Botao';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { carregarCategorias } from '../../store/reducers/categorias';
 
 const Home = () => {
 
-    const [valor, setValor] = useState('')
+
     const dispatch = useDispatch<AppDispatch>()
 
     useEffect(() => {
@@ -29,14 +29,13 @@ const Home = () => {
             >
             <Botao onClick={() => navigate('/anuncie')}>Quero anunciar</Botao>
             </Header>
-            <input type='text' value={valor} placeholder='inputText' onChange={(e: any) => setValor(e.target.value)}/>
             <div className={styles.categorias}>
                 <div className={styles['categorias-title']}>
                     <h1>Categorias</h1>
                 </div>
                 <div className={styles['categorias-container']}>
                 {categorias.map((categoria, index) => (
-                    <div key={index} onClick={() => navigate(`/categoria/${categoria.id}`)}>
+                    <div data-testid='home-categorias' key={index} onClick={() => navigate(`/categoria/${categoria.id}`)}>
                     <img src={categoria.thumbnail} alt={categoria.nome} />
                     <h1>{categoria.nome}</h1>
                     </div>

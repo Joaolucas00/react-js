@@ -1,6 +1,5 @@
 import Home from "./index.tsx"
 import { screen } from "@testing-library/react"
-import userEvent from "@testing-library/user-event"
 import { render } from "../../common/config/test-utils.js"
 
 /*
@@ -12,18 +11,16 @@ function setup(jsx: any) {
   }
 */
 
+vi.mock('../../services/categorias')
 
-describe('Teste teste', () => {
-    it('TEsteetee', () => {
+describe('Página Home', () => {
+
+    test('Deve renderizar com 5 categorias', async () => {
         render(<Home/>)
-        const categoriaTitulo = screen.getByText('Categorias')
-        expect(categoriaTitulo).toBeInTheDocument()
+        const categorias = await screen.findAllByTestId('home-categorias')
+        expect(categorias).toHaveLength(5)
+        
+        categorias.forEach((categoria) => { expect(categoria).toBeInTheDocument()})
     })
 
-    test('UserEvent test', async () => {
-        render(<Home/>)
-        const input = screen.getByPlaceholderText('inputText')
-        await userEvent.type(input, 'Olá, Mundo!')
-        expect(input).toHaveAttribute('value', 'Olá, Mundo!')
-    })
 })
