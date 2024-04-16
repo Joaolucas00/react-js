@@ -27,7 +27,7 @@ const Home = () => {
                 imagem={imagem}
                 className={styles.header}
             >
-            <Botao onClick={() => navigate('/anuncie')}>Quero anunciar</Botao>
+            <Botao dataTestid='home-botao-anunciar' onClick={() => navigate('/anuncie')}>Quero anunciar</Botao>
             </Header>
             <div className={styles.categorias}>
                 <div className={styles['categorias-title']}>

@@ -6,11 +6,12 @@ interface BotaoProps {
     type?: any,
     disabled?: any
     onClick?: () => void
+    dataTestid?: string
 }
 
-const Botao = ({ children, type, onClick, disabled }: BotaoProps) => {
+const Botao = ({ children, type, onClick, disabled, dataTestid }: BotaoProps) => {
     return (
-        <button disabled={disabled} className={styles.button} type={type} onClick={onClick}>
+        <button data-testid={dataTestid} disabled={disabled} className={styles.button} type={type} onClick={onClick}>
             {children}
         </button>
     )
