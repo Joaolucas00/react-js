@@ -1,5 +1,5 @@
 
-const mockCategorias = [
+export const mockCategorias = [
     {
       "nome": "Eletrônicos",
       "thumbnail": "/assets/categorias/thumbnail/eletronicos.png",
