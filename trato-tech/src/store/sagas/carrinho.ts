@@ -41,7 +41,7 @@ function* calcularTotal() {
 }
 
 
-function* finalizarPagamentoSaga({ payload }): Generator {
+function* finalizarPagamentoSaga({ payload }: any): Generator {
     const {valorTotal, formaDePagamento} = payload
     console.log('PAYLOAD', payload);
     
