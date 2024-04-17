@@ -1,4 +1,4 @@
-import { CallEffect, PutEffect, call, delay, put, select, takeEvery, takeLatest } from "redux-saga/effects";
+import { CallEffect, ForkEffect, PutEffect, call, delay, put, select, takeEvery, takeLatest } from "redux-saga/effects";
 import { carregarPagamento, finalizarPagamento, mudarCarrinho, mudarQuantidade, mudarTotal, resetarCarrinho } from "../reducers/carrinho";
 import usuariosServices from "../../services/usuarios";
 import cartoesServices from "../../services/cartoes";
@@ -65,7 +65,7 @@ function* finalizarPagamentoSaga({ payload }: any): Generator {
     }
 }
 
-export function* watcherCarrinho(): Generator {
+export function* watcherCarrinho(): Generator<ForkEffect, void> {
     yield takeLatest(carregarPagamento, workerCarrinho)
     yield takeEvery([mudarQuantidade, mudarCarrinho], calcularTotal)
     yield takeLatest(finalizarPagamento, finalizarPagamentoSaga)
