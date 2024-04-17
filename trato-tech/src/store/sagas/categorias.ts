@@ -7,7 +7,7 @@ import { ICategorias } from "../../interfaces/ICategorias";
 
 const { toast } = createStandaloneToast();
 
-function* workerCategorias(): Generator<CallEffect | PutEffect, void, ICategorias[]> {
+export function* workerCategorias(): Generator<CallEffect | PutEffect, void, ICategorias[]> {
     toast({
         title: 'Carregando',
         description: 'Carregando categorias',
