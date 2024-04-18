@@ -1,5 +1,6 @@
+import { Outlet } from "react-router-dom"
 import EstilosGlobais from "../EstilosGlobais"
-import Header from "../Header/Header"
+import Header from "../Header"
 
 
 const PaginaPadrao = () => {
@@ -7,6 +8,7 @@ const PaginaPadrao = () => {
         <>
             <EstilosGlobais/>
             <Header/>
+            <Outlet/>
         </>
     )
 }
