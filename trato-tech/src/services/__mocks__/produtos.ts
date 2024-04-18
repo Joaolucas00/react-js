@@ -1,4 +1,4 @@
-const mockProdutos = [
+export const mockProdutos = [
     {
       "id": "1",
       "titulo": "Assistente virtual",

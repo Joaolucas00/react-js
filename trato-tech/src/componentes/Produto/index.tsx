@@ -13,7 +13,7 @@ import Input from '../Input'
 
 const iconeProps = {
     size: 24,
-    color: '#041833'
+    color: '#041833',
 }
 
 const qunatidadeProps = {
@@ -23,7 +23,7 @@ const qunatidadeProps = {
 
 interface ProdutoProps {
     produto: IProdutos,
-    carrinho?: boolean
+    carrinho?: boolean,
 }
 
 const Produto = ({ produto, carrinho }: ProdutoProps) => {
@@ -49,17 +49,17 @@ const Produto = ({ produto, carrinho }: ProdutoProps) => {
 
     const componenteModoDeEdicao = <>
             { modoDeEdicao 
-               ? <AiOutlineCheck {...iconeProps} className={styles['item-acao']} onClick={() => {
+               ? <AiOutlineCheck {...iconeProps} data-testid='outLineCheck' className={styles['item-acao']} onClick={() => {
                 setModoDeEdicao(false);
                 dispatch(mudarProduto({id: produto.id, produto: {titulo: novoTitulo}}))
                }}/>
-                : <AiFillEdit {...iconeProps} className={styles['item-acao']} onClick={() => setModoDeEdicao(true)}/>
+                : <AiFillEdit data-testid='fillEdit' {...iconeProps} className={styles['item-acao']} onClick={() => setModoDeEdicao(true)}/>
             }
     </>
 
     return (
-        <div className={`${styles.item} ${carrinho ? styles.itemNoCarrinho : ''}`}>
-            <AiFillCloseCircle onClick={() => dispatch(deletarProduto(produto.id))} {...iconeProps} className={`${styles['item-acao']} ${styles['item-deletar']}`}/>
+        <div data-testid='card' className={`${styles.item} ${carrinho ? styles.itemNoCarrinho : ''}`}>
+            <AiFillCloseCircle data-testid='close' onClick={() => dispatch(deletarProduto(produto.id))} {...iconeProps} className={`${styles['item-acao']} ${styles['item-deletar']}`}/>
             <div className={styles['item-imagem']}>
                 <img src={produto.foto} alt={produto.titulo}/>
             </div>
@@ -74,8 +74,8 @@ const Produto = ({ produto, carrinho }: ProdutoProps) => {
                     </div>
                     <div className={styles['item-acoes']}>
                         {produto.favorito 
-                        ? <AiFillHeart onClick={alterarFavorito} {...iconeProps} color='#ff0000' className={styles['item-acao']}/> 
-                        : <AiOutlineHeart onClick={alterarFavorito} {...iconeProps} className={styles['item-acao']}/>}
+                        ? <AiFillHeart data-testid='fillHeart' onClick={alterarFavorito} {...iconeProps} color='#ff0000' className={styles['item-acao']}/> 
+                        : <AiOutlineHeart data-testid='outLineHeart' onClick={alterarFavorito} {...iconeProps} className={styles['item-acao']}/>}
                         { carrinho ? 
                         (
                             <div className={styles.quantidade}>

@@ -8,7 +8,7 @@ interface InputProps {
 
 const Input = ({ value, onChange}: InputProps, ref?: any) => {
     return (
-        <input ref={ref} value={value} onChange={onChange} className={styles.input}/>
+        <input data-testid='input-text' ref={ref} value={value} onChange={onChange} className={styles.input}/>
     )
 }
 
