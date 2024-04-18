@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
 import { useAdicionarParticipante } from "../../state/hook/useAdicionarParticipante"
 import { useMensagemErro } from "../../state/hook/useMensagemErro"
 import styled from "styled-components"
