@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import PaginaPadrao from "./componentes/PaginaPadrao/PaginaPadrao";
 import { RecoilRoot } from "recoil";
-import Home from "./componentes/paginas/Home";
+import Home from "./paginas/Home";
 
 
 function AppRoutes() {

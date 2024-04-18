@@ -3,7 +3,7 @@ import styled from "styled-components"
 const HeaderEstilizado = styled.header`
     display: flex;
     width: 100%;
-    height: 500px;
+
     flex-direction: row;
     flex-wrap: wrap;
     align-content: center;
@@ -27,7 +27,8 @@ const ImagemLogo = styled.div`
 `
 
 const ImgParticipante = styled.img`
-
+    width: 100%;
+    margin-bottom: -8%;
 `
 
 const Header = () => {
