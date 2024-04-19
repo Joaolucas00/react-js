@@ -20,6 +20,11 @@ const Titulo = styled.h1`
     color: #4B69FD;
     font-size: 3rem;
     text-align: center;
+    @media screen and (max-width: 800px) { 
+        margin-top: 10%;
+        margin-bottom: 5%;
+        font-size: 2rem;
+    }
 
 `
 
