@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import { useListaParticipantes } from "../../state/hook/useListaParticipantes"
 import styled from "styled-components"
+import { useSorteador } from "../../state/hook/useSorteador"
 
 
 
@@ -53,10 +54,14 @@ const Rodape = () => {
 
     const navigate = useNavigate()
 
+    const sortear = useSorteador()
+
     const iniciar = () => {
+        sortear()
         navigate('/sorteio')
     }
-    
+
+
     return (
         <FooterEstilizado>
             <button disabled={participantes.length < 3} onClick={iniciar}>Iniciar brincadeira!</button>
