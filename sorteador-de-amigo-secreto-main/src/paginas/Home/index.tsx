@@ -30,11 +30,11 @@ const Titulo = styled.h1`
 
 const Home = () => {
     return (
-        <MainEstilizado>
+        <>
             <Titulo>Vamos começar</Titulo>
             <Formulario/>
             <Rodape/>
-        </MainEstilizado>
+        </>
     )
 }
 
