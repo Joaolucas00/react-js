@@ -3,36 +3,42 @@
 exports[`A pagina de configuracao Deve ser renderizada corretamente 1`] = `
 <div>
   <main
-    class="sc-hLQSwg gqzbyT"
+    class="sc-eDLKkx joPssw"
   >
     <h1
-      class="sc-eDLKkx moga"
+      class="sc-jTQCzO bSUbUf"
     >
       Vamos começar
     </h1>
     <form
-      class="sc-beySPh fyosFO"
+      class="sc-beySPh hZbrcg"
     >
       <input
-        class="sc-guDLey ekvGFt"
+        class="sc-guDLey fqwage"
         placeholder="Insira os nomes dos participantes"
         type="text"
         value=""
       />
       <button
-        class="sc-dmyCSP cnfAxP"
+        class="sc-dmyCSP duHolq"
         disabled=""
       >
         Adicionar
       </button>
       
     </form>
-    <footer>
+    <footer
+      class="sc-hLQSwg eJJvqt"
+    >
       <button
         disabled=""
       >
         Iniciar brincadeira!
       </button>
+      <img
+        alt="sacola"
+        src="imagens/sacolas.png"
+      />
     </footer>
   </main>
 </div>
