@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import Formulario from "../../componentes/Formulario"
+import Rodape from "../../componentes/Rodape"
 
 const MainEstilizado = styled.main`
     display: flex;
@@ -27,6 +28,7 @@ const Home = () => {
         <MainEstilizado>
             <Titulo>Vamos começar</Titulo>
             <Formulario/>
+            <Rodape/>
         </MainEstilizado>
     )
 }
