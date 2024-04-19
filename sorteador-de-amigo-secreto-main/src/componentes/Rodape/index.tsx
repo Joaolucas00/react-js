@@ -27,7 +27,7 @@ const FooterEstilizado = styled.footer`
         box-shadow: 0 0 0 black;
         cursor: pointer;
     }
-    
+
     & > button:hover {
         background-color: #4B69FD;
     }
@@ -60,7 +60,7 @@ const Rodape = () => {
     return (
         <FooterEstilizado>
             <button disabled={participantes.length < 3} onClick={iniciar}>Iniciar brincadeira!</button>
-            <img src="imagens/sacolas.png"/>
+            <img src="imagens/sacolas.png" alt="sacola"/>
         </FooterEstilizado>
     )
 }
